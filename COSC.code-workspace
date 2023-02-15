@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../COSC"
+		},
+		{
+			"name": "noaa-map",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
