@@ -4,6 +4,20 @@
     <head>
         <title>425 Software Engineering Project</title>
         <meta charset="UTF-8">
+        <style>
+            .button{
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .button1 {background-color: brown;}
+        </style>
     </head>
     <body style="background-color: aqua;">
         <h1 style="color: black;" style="font-family:'Times New Roman', Times, serif"><center>Homepage</center></h1>
@@ -11,7 +25,7 @@
         <p style="color: black;" style="font-family:'Times New Roman', Times, serif"><center>A Map that shows the NOAA bathymetry database</center></p>
         <button type="reset">Reset the form data</button>
         <form action="https://www.arcgis.com/apps/mapviewer/index.html?layers=90970487a4404c5f8f2af1d8761070b0">
-            <input type="submit" value="Go to Original Map site(slow)" />
+            <input class="button button1" type="submit" value="Go to Original Map site" />
         </form>
         
     </body>
