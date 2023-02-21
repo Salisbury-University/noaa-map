@@ -89,10 +89,10 @@
                                     </svg>
                                 </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">News</h2>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Tokens</h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Bathymetric Tile API news is where we post information and updates about our project and about the wider mapping software community!
+                                    Bathymetric Tile API uses tokens to manage use! Create, delete and manage your tokens here!
                                 </p>
                             </div>
 
