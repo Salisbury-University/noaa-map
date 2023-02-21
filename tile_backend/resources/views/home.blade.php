@@ -16,9 +16,7 @@
 
                     {{ __('You are logged in!') }}
                 </div>
-                <div>
-                    <a href="{{route("token-index")}}">view all tokens</a>
-                </div>
+                <img  class="m-2" src="{{asset("/logo.svg")}}" alt="">
             </div>
         </div>
     </div>
