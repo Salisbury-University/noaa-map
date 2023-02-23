@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 
 class TokenController extends Controller
@@ -20,8 +21,8 @@ class TokenController extends Controller
 
     public function store(Request $request){
         $token_plain_text = $request->user()->createToken($request->token_name)->plainTextToken;
-
-        return redirect(route("home",compact($token_plain_text)));
+        $request->session()->put('status',$token_plain_text);
+        return redirect(route("home"));
     }
 
     public function destroy($tokenId){
@@ -30,4 +31,5 @@ class TokenController extends Controller
         return view('/home');
 
     }
+    
 }

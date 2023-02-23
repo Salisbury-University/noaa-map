@@ -3,7 +3,21 @@
 @section('content')
 
 <div class="container">
-    
+    @if (session('status'))
+
+        <div class="card">
+            <div class="card-header">Token Created</div>
+            <div class="card-body">
+                <div class="alert ">
+                    This is your API key, please put this in a safe place as you will not be able to view it once you logout or create another token.
+                </div>
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                </div>
+        </div>
+        @endif
+
 
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,9 +32,9 @@
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Token</th>
                             <th scope="col">Created</th>
                             <th scope="col">Last Used</th>
+                            <th scope="col">Number of Uses</th>
                             <th scope="col">Actions</th>
 
 
@@ -31,9 +45,9 @@
                             <tr>
                                 <th scope="row">{{$token->id}}</th>
                                 <td>{{$token->name}}</td>
-                                <td>{{$token->plainTextToken}}</td>
                                 <td>{{$token->created_at}}</td>
                                 <td>{{$token->last_used_at}}</td>
+                                <td>{{$token->uses}}</td>
                                 <td>
                                     <form method="POST" action="{{route("tokens.destroy",$token->id)}}">
                                         @method('DELETE')
