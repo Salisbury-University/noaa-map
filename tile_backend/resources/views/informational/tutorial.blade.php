@@ -9,9 +9,21 @@
                 <div class="card-header">{{ __('Tutorial') }}</div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">
+                            Log in to Bathymetric API or create an account if you don't already have one.
+                        </li>
+                        <li class="list-group-item"> 
+                            Navigate to the My Tokens page and click the green New Token button. 
+                        </li>
+                        <li class="list-group-item"> 
+                            Make a request with javascript
+                        </li>
+                        <li class="list-group-item">
+                            Make a request with curl
+                        </li>
+                        <li class="list-group-item">
+                            Make a request with python
+                        </li>
                       </ul>
                     
                    
