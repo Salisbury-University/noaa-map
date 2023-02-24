@@ -7,18 +7,22 @@
             In this example the grid container creates a grid with three column tracks
             and two row tracks.
           </p>
-        </figure>
-        <style>
-        .container {
-            display: grid;
-            grid-template-columns: 5em 100px 30%;
-            grid-template-rows: 200px auto;
-            gap: 10px;
-            background-color: var(--color-stroke);
-            padding: 1em;
-            max-width: 30rem;
-          }
+          <style>
+            .container {
+                 display: grid;
+                grid-template-columns: 5em 100px 30%;
+                grid-template-rows: 200px auto;
+                gap: 10px;
+                background-color: var(--color-stroke);
+                padding: 1em;
+                max-width: 30rem;
+            }
+            .box{
+                display: square;
+                background-color:red;
+            }
           </style>
+        </figure>
         <div class="container" id="container">
           <div class="box">Item one</div>
           <div class="box">Item two</div>
