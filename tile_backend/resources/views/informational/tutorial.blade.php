@@ -13,16 +13,57 @@
                             Log in to Bathymetric API or create an account if you don't already have one.
                         </li>
                         <li class="list-group-item"> 
-                            Navigate to the My Tokens page and click the green New Token button. 
+                            Navigate to the My Tokens page and click the green New Token button. Your token will be shown to you at the top of page in a 
+                            green banner. Put this is a safe place because once you log out, you won't be able to see the token again. 
                         </li>
                         <li class="list-group-item"> 
-                            Make a request with javascript
+
+                            <div>Making a request with javascript:</div>
+                            <pre><code>
+                                const options = {
+                                    method: 'GET',
+                                    headers: {
+                                      Accept: 'application/json',
+                                      Authorization: 'Bearer <strong>YOUR_TOKEN_HERE</strong>'
+                                    }
+                                  };
+                                  
+                                  fetch('http://127.0.0.1/api/welcome', options)
+                                    .then(response => response.json())
+                                    .then(response => console.log(response))
+                                    .catch(err => console.error(err));
+                            </code></pre>
                         </li>
                         <li class="list-group-item">
-                            Make a request with curl
+                            <div>Making a request with curl:</div>
+                            <pre><code>
+                                curl --request GET \
+                                --url http://127.0.0.1/api/welcome \
+                                --header 'Accept: application/json' \
+                                --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>'
+                            </code></pre>
                         </li>
                         <li class="list-group-item">
-                            Make a request with python
+                            <div>Making a request with python</div>
+                            <pre><code>
+                                import requests
+
+                                url = "http://127.0.0.1/api/welcome"
+
+                                payload = ""
+                                headers = {
+                                    "Accept": "application/json",
+                                    "Authorization": "Bearer 8|x8o3MChM52gqyfgJKu2WaVB7bCYxo1MJSsAlqbrG"
+                                }
+
+                                response = requests.request("GET", url, data=payload, headers=headers)
+
+                                print(response.text)
+                            </code></pre>
+                        </li>
+                        <li class="list-group-item">
+                            You should get a message that says "hello noaa maps!" Now that you know how to make a request, head over to our 
+                            <a href="{{route("documentation")}}" class="text-muted">documentation</a> to discover all the ways you can use the Bathymetric API.
                         </li>
                       </ul>
                     
