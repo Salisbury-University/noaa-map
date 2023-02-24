@@ -36,8 +36,9 @@
                         <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: #009688;text-decoration-thickness: 3px;" class="nav-link" href="{{route("tokens.index")}}">My Tokens</a></li>
 
                         @endauth
-                        <li class="nav-item " ><a style="text-decoration: underline;text-decoration-color: #009688;text-decoration-thickness: 3px;" class="nav-link" href="">Documentation</a></li>
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: #009688;text-decoration-thickness: 3px;" class="nav-link" href="">About Us</a></li>
+                        <li class="nav-item " ><a style="text-decoration: underline;text-decoration-color: #009688;text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
+                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: #009688;text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
+                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: #009688;text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
 
                     </ul>
 
