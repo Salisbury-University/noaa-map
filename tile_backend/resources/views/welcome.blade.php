@@ -32,7 +32,7 @@
                     <img src="{{asset("/logo.svg")}}" alt=" Ocean SVG">
                 </div>
                 <div class="flex justify-center">
-                    <h1 class="text-5xl">Bathymetric Tile API</h1>
+                    <h1 class="text-5xl">Bathymetric Mapping API</h1>
                 </div>
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -47,7 +47,7 @@
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    The Bathymetric Tile API has wonderful documentation covering every aspect of our product. Whether you are a newcomer or have prior experience with mapping technologies, we recommend reading our documentation from beginning to end.
+                                    The BathMap API has wonderful documentation covering every aspect of our product. Whether you are a newcomer or have prior experience with mapping technologies, we recommend reading our documentation from beginning to end.
                                 </p>
                             </div>
 
@@ -67,7 +67,7 @@
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Tutorials</h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    The Bathymetric Tile API tutorials will guide you through the process of using this resource! Go from zero to a mapping hero with our tutorials developed by experienced mapping developers!
+                                    The BathMap API tutorials will guide you through the process of using this resource! Go from zero to a mapping hero with our tutorials developed by experienced mapping developers!
                                 </p>
                             </div>
 
@@ -87,7 +87,7 @@
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Tokens</h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Bathymetric Tile API uses tokens to manage use! Create, delete and manage your tokens here!
+                                    BathMap API uses tokens to manage use! Create, delete and manage your tokens here!
                                 </p>
                             </div>
 
@@ -106,7 +106,7 @@
                                     <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Open Source</h2>
 
                                     <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                        At Bathymetric Tile API we belive in free and open source software! You can find us on github by following the arrow! 
+                                        At BathMap we belive in free and open source software! You can find us on github by following the arrow! 
                                     </p>
                                 </div>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-teal-500 w-6 h-6 mx-6">

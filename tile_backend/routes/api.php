@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TileController;
+use App\Http\Controllers\TokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/welcome',function(Request $request){
-    return "hello noaa maps!";
+    return "Hello BathMap User!";
 })->middleware('auth:sanctum');
+
+Route::get('/version',function(Request $request){
+    return "1.0";
+})->middleware('auth:sanctum');
+
+Route::get('/relative/{x}/{y}/{z}',[TileController::class,"relative"])->middleware("auth:sanctum");
+Route::get('/coordinate/{lattitude}/{longitude}/{scope}',[TileController::class,"coordinate"])->middleware("auth:sanctum");

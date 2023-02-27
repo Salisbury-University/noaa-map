@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            Log in to Bathymetric API or create an account if you don't already have one.
+                            Log into BathMap.net or create an account if you don't already have one.
                         </li>
                         <li class="list-group-item"> 
                             Navigate to the My Tokens page and click the green New Token button. Your token will be shown to you at the top of page in a 
@@ -28,7 +28,7 @@
                                     }
                                   };
                                   
-                                  fetch('http://127.0.0.1/api/welcome', options)
+                                  fetch('http://BathMap.net/api/welcome', options)
                                     .then(response => response.json())
                                     .then(response => console.log(response))
                                     .catch(err => console.error(err));
@@ -38,7 +38,7 @@
                             <div>Making a request with curl:</div>
                             <pre><code>
                                 curl --request GET \
-                                --url http://127.0.0.1/api/welcome \
+                                --url http://BathMap.net/api/welcome \
                                 --header 'Accept: application/json' \
                                 --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>'
                             </code></pre>
@@ -48,7 +48,7 @@
                             <pre><code>
                                 import requests
 
-                                url = "http://127.0.0.1/api/welcome"
+                                url = "http://BathMap.net/api/welcome"
 
                                 payload = ""
                                 headers = {
@@ -62,7 +62,7 @@
                             </code></pre>
                         </li>
                         <li class="list-group-item">
-                            You should get a message that says "hello noaa maps!" Now that you know how to make a request, head over to our 
+                            You should get a message that says "Hello BathMap User!" Now that you know how to make a request, head over to our 
                             <a href="{{route("documentation")}}" class="text-muted">documentation</a> to discover all the ways you can use the Bathymetric API.
                         </li>
                       </ul>
