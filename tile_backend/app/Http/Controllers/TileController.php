@@ -65,4 +65,12 @@ class TileController extends Controller
     {
         //
     }
+
+    public function coordinate($lattitude, $longitude, $scope){
+        return("Tile at " . $lattitude . ", ". $longitude . " with a width of " . $scope);
+    }
+
+    public function relative($x, $y, $z){
+        return("Tile at " . $x . ", " . $y . ", " . $z);
+    }
 }
