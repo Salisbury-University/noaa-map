@@ -21,11 +21,17 @@ class TrackTokenUsage
         foreach($userTokens as $token){
             if(hash("sha256",$requestToken[1])==$token->token){
                 $token->uses++;
+                if($token->uses >$token->max_usage){
+                    return response()->json([
+                        'error' => 'You have exceeded the free token limit.',
+                    ], 403);
+                }
                 $token->save();
                 return $next($request);
 
             }
         }
+
         
         return $next($request);
     }

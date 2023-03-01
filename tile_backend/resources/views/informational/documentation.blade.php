@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <img src="{{asset("./logo.svg")}}" class =" w-75 justify-content-center"alt="">
             <div class="card">
                 <div class="card-header">{{ __('Documentation') }}</div>
