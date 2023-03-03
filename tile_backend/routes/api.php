@@ -19,11 +19,11 @@ use App\Http\Controllers\TokenController;
 
 
 Route::get('/welcome',function(Request $request){
-    return "Hello BathMap User!";
+    return ["message"=>"Hello BathMap User!"];
 })->middleware('auth:sanctum');
 
 Route::get('/version',function(Request $request){
-    return "1.0";
+    return ["version"=>"1.0"];
 })->middleware('auth:sanctum');
 
 Route::get('/relative/{x}/{y}/{z}',[TileController::class,"relative"])->middleware("auth:sanctum");
