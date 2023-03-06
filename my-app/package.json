@@ -1,15 +1,13 @@
 {
-  "name": "my-app",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+  "name": "localized-openstreetmap",
+  "dependencies": {
+    "ol": "7.3.0"
   },
   "devDependencies": {
-    "vite": "^4.0.4"
+    "vite": "^3.2.3"
   },
-  "dependencies": {
-    "ol": "latest"
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
   }
 }
