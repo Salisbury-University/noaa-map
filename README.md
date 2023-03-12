@@ -1,5 +1,5 @@
 
-<div style="display:flex; justify-content:center;">
+<div align="center">
 <img src="./tile_backend/public/logo.svg" alt="Logo" width="300" height="300">
 </div>
 
