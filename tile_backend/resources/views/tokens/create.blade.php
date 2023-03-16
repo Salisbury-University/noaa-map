@@ -7,8 +7,9 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <img src="{{asset("./logo.svg")}}" class =" w-75 justify-content-center"alt="">
-            <div class="card">
+            <div class="d-flex justify-content-center m-2">
+                <img src="{{asset("./logo.png")}}" class =" w-50 "alt="">
+            </div>            <div class="card">
                 <div class="card-header">{{ __('Create Token') }}</div>
                 <div class="card-body">
                    
@@ -20,7 +21,7 @@
                             <input type="text" name="token_name" class="form-control" id="token_name"  >
                         </div>
                         <a href="/home"class="m-3 btn btn-sm btn-dark" >Cancel</a>
-                        <button type="submit" class="m-3 btn btn-sm" style="background-color: #009688; color:white;">Create</button>
+                        <button type="submit" class="m-3 btn btn-sm" style="background-color: rgb(0, 47, 130); color:white;">Create</button>
                     </form>
 
                 </div>
