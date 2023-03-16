@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src="./tile_backend/public/logo.svg" alt="Logo" width="300" height="300">
+<img src="./tile_backend/public/logo.png" alt="Logo" width="300" height="300">
 </div>
 
 ## About BathMap

@@ -21,11 +21,13 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <img src="{{asset("./logo.svg")}}" class =" w-75 justify-content-center"alt="">
+            <div class="d-flex justify-content-center m-2">
+                <img src="{{asset("./logo.png")}}" class =" w-50 "alt="">
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('My Tokens') }}</div>
                 <div class="card-body">
-                    <a href="{{route("tokens.create")}}" class="m-3 btn " style="background-color: #009688; color:white;">New Token</a>
+                    <a href="{{route("tokens.create")}}" class="m-3 btn " style="background-color: rgb(0, 47, 130); color:white;">New Token</a>
                     
                     <table class=" m-3 table table-striped ">
                         <thead class="thead-dark">

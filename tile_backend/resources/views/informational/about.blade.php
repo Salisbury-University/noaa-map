@@ -4,7 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <img src="{{asset("./logo.svg")}}" class =" w-75 justify-content-center"alt="">
+            <div class="d-flex justify-content-center m-2">
+                <img src="{{asset("./logo.png")}}" class =" w-50 "alt="">
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('About') }}</div>
 
