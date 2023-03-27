@@ -14,13 +14,25 @@
       body{
         font-family: Arial, Helvetica, sans-serif;
       }
+      .header {
+        padding: 10px;
+        text-align: left; 
+        background: #fcfcfc;
+        color: #049bcc; 
+        font: bold;
+      }
+      .header h1 {
+        font-size: 40px;
+      }
     </style>
   </head>
   <body>
     <div class="header">
+      <p><img src="/images/bathMapLogo.png" alt="Logo" style="width:25%;height:25%;float:right" ></p>
       <h1>Bathmap</h1>
       <p>API Viewer</p>
     </div> 
+    
     <div id="map" class="map"></div>
     <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
     <script src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js"></script>
