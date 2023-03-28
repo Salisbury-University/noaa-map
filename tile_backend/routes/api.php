@@ -20,11 +20,11 @@ use App\Http\Controllers\TokenController;
 
 Route::get('/welcome',function(Request $request){
     return ["message"=>"Hello BathMap User!"];
-})->middleware('auth:sanctum');
+});
 
 Route::get('/version',function(Request $request){
     return ["version"=>"1.0"];
-})->middleware('auth:sanctum');
+});
 
-Route::get('/relative/{x}/{y}/{z}',[TileController::class,"relative"])->middleware("auth:sanctum");
-Route::get('/coordinate/{lattitude}/{longitude}/{scope}',[TileController::class,"coordinate"])->middleware("auth:sanctum");
+Route::get('/relative/{x}/{y}/{z}',[TileController::class,"relative"]);
+Route::get('/coordinate/{lattitude}/{longitude}/{scope}',[TileController::class,"coordinate"]);
