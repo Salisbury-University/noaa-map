@@ -75,7 +75,7 @@ class TileController extends Controller
 
     public function relative($x, $y, $z){
         $tile=Tile::where('x_position',$x)->where('y_position',$y)->where('z_position',$z)->first();
-        $image = Storage::get($tile->image_path);
-        return response($image, 200)->header('Content-Type', 'image/png');
+       // $image=imagecreatefromstring($tile->image_blob); this was for the file path implementation
+        return response($tile->image_blob, 200)->header('Content-Type', 'image/png');
     }
 }
