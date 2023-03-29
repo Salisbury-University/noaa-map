@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("home")}}">My Tokens</a></li>
+                        {{-- <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("home")}}">My Tokens</a></li> --}}
                         <li class="nav-item " ><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
                         <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
                         <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
@@ -40,7 +40,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    {{-- <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -73,7 +73,7 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </nav>
