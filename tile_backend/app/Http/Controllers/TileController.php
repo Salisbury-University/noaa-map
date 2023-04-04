@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tile;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreTileRequest;
 use Illuminate\Support\Facades\Storage;
@@ -74,9 +75,15 @@ class TileController extends Controller
     }
 
     public function relative($x, $y, $z){
-        $tile=Tile::where('x_position',$x)->where('y_position',$y)->where('z_position',$z)->first();
-        //$image = Storage::get($tile->image_path); this was for the file path implementations
 
-        return response($tile->image_blob, 200)->header('Content-Type', 'image/png');
+        $location=DB::connection('sqlite_tiles')->table("location")->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
+        if(isset($location)){
+            $tile=DB::connection("sqlite_tiles")->table("tile")->where("id",$location->tile_ID)->first();
+            return response($tile->image, 200)->header('Content-Type', 'image/png');
+        }
+        else{
+            return ["message"=>"no tile with that location"];
+        }
+        
     }
 }
