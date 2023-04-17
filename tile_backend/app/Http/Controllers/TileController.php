@@ -74,7 +74,7 @@ class TileController extends Controller
         ]);
     }
 
-    public function relative($x, $y, $z){
+    public function relative($z, $x, $y){
 
         $location=DB::connection('sqlite_tiles')->table("location")->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
         if(isset($location)){
