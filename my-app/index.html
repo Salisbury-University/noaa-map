@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="node_modules/ol/ol.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <style>
+      
       .map {
         width: 98%;
         height: 500px;
@@ -28,10 +29,14 @@
   </head>
   <body>
     <div class="header">
-      <p><img src="/images/bathMapLogo.png" alt="Logo" style="width:150px;height:150px;float:right" ></p>
+      <p><a href="https://www.bathmap.net/">
+        <img src="/images/bathMapLogo.png" alt="Logo" style="width:150px;height:150px;float:right" ></p></a>
       <h1>bathmap</h1>
       <p>API Viewer</p>
+      <div id="zoomLevel"></div>
     </div> 
+
+    
     
     <div id="map" class="map"></div>
     <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
@@ -43,4 +48,3 @@
       alt="GitHub" style="width:50px;height:50px;"></a>
     
   </body>
-</html>
