@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\TokenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//informational routes
+Route::get("/documentation",[InformationController::class,'documentation'])->name('documentation');
+Route::get("/about",[InformationController::class,'about'])->name('about');
+Route::get("/tutorial",[InformationController::class,'tutorial'])->name('tutorial');
+
+
+
+//Route::resource('/tokens',TokenController::class)->middleware("auth");
+
