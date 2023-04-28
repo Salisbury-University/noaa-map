@@ -49,11 +49,18 @@ var dataTileLayer = new TileLayer({
   }),
 });
 
+//Map background from OpenStreetMap
+const backgroundLayer = new TileLayer({
+  source: new OSM({
+    tileGrid : tileGrid
+  }),
+});
+
 //Initialize map and set attributes
 var map = new Map({
   target: 'map',
   controls: defaultControls().extend([new FullScreen()]),
-  layers: [
+  layers: [//backgroundLayer,
   dataTileLayer],
   view: new View({
     maxZoom: 18,
