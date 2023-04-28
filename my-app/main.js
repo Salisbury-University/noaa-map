@@ -79,6 +79,6 @@ map.getView().on('change:resolution', function() {
 //Display Z/X/Y of mouse location
 map.on("pointermove", function (evt) {
   var tileCoord = tileGrid.getTileCoordForCoordAndZ(evt.coordinate, map.getView().getZoom());
-  var tileLocation = "Tile location: " + tileCoord[0] + "/" + tileCoord[1] + "/" + tileCoord[2];
+  var tileLocation = "Tile location: " + tileCoord[0] + "/" + tileCoord[2] + "/" + tileCoord[1];
   document.getElementById("tile-location").innerHTML = tileLocation;
 });
