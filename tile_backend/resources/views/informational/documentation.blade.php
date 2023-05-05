@@ -22,13 +22,14 @@
                                     <div class='text-muted w-25'> Get the current version of the API </div>
                                 </li>
                                 <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">{{"bathmap.net/api/relative/{z}/{y}/{x}"}}</div>
+                                    <div class="fs-5">{{"bathmap.net/api/relative/06/{z}/{y}/{x}"}}</div>
                                     <div class='text-muted w-25'> Get a map tile by relative grid position with x as column, y as row and z as the zoom level </div>
                                 </li>
-                                <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">{{"bathmap.net/api/coordinate/{lattitude}/{longitude}/{scope}"}}</div>
+                                {{-- we'll add this once the feature is working --}}
+                                {{-- <li class="list-group-item  d-flex justify-content-between">
+                                    <div class="fs-5">{{"bathmap.net/api/coordinate//{lattitude}/{longitude}/{scope}"}}</div>
                                     <div class='text-muted w-25'> Get a map tile by the lattitude and longitude of the top right corner of the tile and the scope/width of the tile in miles </div>
-                                </li>
+                                </li> --}}
                                 
                                 
 

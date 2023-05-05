@@ -27,7 +27,7 @@
                                     method: 'GET',
                                     headers: {
                                       Accept: 'application/json',
-                                      Authorization: 'Bearer <strong>YOUR_TOKEN_HERE</strong>'
+                                      {{-- Authorization: 'Bearer <strong>YOUR_TOKEN_HERE</strong>' --}}
                                     }
                                   };
                                   
@@ -43,7 +43,7 @@
                                 curl --request GET \
                                 --url https://bathmap.net/api/welcome \
                                 --header 'Accept: application/json' \
-                                --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>'
+                                {{-- --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>' --}}
                             </code></pre>
                         </li>
                         <li class="list-group-item">
@@ -56,7 +56,7 @@
                                 payload = ""
                                 headers = {
                                     "Accept": "application/json",
-                                    "Authorization": "Bearer 8|x8o3MChM52gqyfgJKu2WaVB7bCYxo1MJSsAlqbrG"
+                                    {{-- "Authorization": "Bearer 8|x8o3MChM52gqyfgJKu2WaVB7bCYxo1MJSsAlqbrG" --}}
                                 }
 
                                 response = requests.request("GET", url, data=payload, headers=headers)

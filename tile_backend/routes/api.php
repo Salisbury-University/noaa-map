@@ -26,5 +26,5 @@ Route::get('/version',function(Request $request){
     return ["version"=>"1.0"];
 });
 
-Route::get('/relative/{z}/{y}/{x}',[TileController::class,"relative"]);
+Route::get('/relative/{gridID}/{z}/{y}/{x}',[TileController::class,"relative"]);
 Route::get('/coordinate/{lattitude}/{longitude}/{scope}',[TileController::class,"coordinate"]);
