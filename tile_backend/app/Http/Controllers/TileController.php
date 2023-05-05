@@ -74,9 +74,9 @@ class TileController extends Controller
         ]);
     }
 
-    public function relative($z, $y, $x){
+    public function relative($gridID, $z, $y, $x){
 
-        $location=DB::table("location")->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
+        $location=DB::table("location")->where('gridID',$gridID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
         if(isset($location)){
             $tile=DB::table("tile")->where("id",$location->tileID)->first();
             return response($tile->image, 200)->header('Content-Type', 'image/png');
