@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>425 Software Engineering Project</title>
+        <script src="TestMapScript.js"></script>
+        <meta charset="UTF-8">
+        <style>
+            .button{
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: black;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .button1 {background-color: black;}
+        </style>
+    </head>
+    <body style="background-color: aqua;">
+        <h1 style="color: black;" style="font-family:'Times New Roman', Times, serif"><center>Homepage</center></h1>
+        <center><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d52198278.74462594!2d-92.14976215279137!3d37.01146392364496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1676491296254!5m2!1sen!2sus" width="1400" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></center>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer></script>-->
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+        </script>
+      
+        <p style="color: black;" style="font-family:'Times New Roman', Times, serif"><center>A Map that shows the NOAA bathymetry database</center></p>
+        <button type="reset">Reset the form data</button>
+        <form action="https://www.arcgis.com/apps/mapviewer/index.html?layers=90970487a4404c5f8f2af1d8761070b0">
+            <input class="button button1" type="submit" value="Go to Original Map site" />
+        </form>
+        
+    </body>
+</html>
+
+
+
