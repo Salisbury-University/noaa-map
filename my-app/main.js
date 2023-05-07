@@ -8,6 +8,11 @@ import {FullScreen, defaults as defaultControls} from 'ol/control.js';
 
 
 // Define your tile grid
+let gridID=document.getElementById("grid_selector")
+
+
+  
+
 var tileGrid = new TileGrid({
   extent: [-20037508.34, -20037508.34, 20037508.34, 20037508.34],
   resolutions: [
@@ -36,6 +41,18 @@ var tileGrid = new TileGrid({
   tileSize: [256, 256],
 });
 
+//Map background from OpenStreetMap
+const backgroundLayer = new TileLayer({
+  source: new OSM({
+    tileGrid : tileGrid
+  }),
+});
+
+gridID.addEventListener("change",(event)=>{
+map=document.getElementById("map");
+map.innerHTML="";
+console.log(event.target.value);
+
 //Create Layer displaying API data
 var dataTileLayer = new TileLayer({
   source: new XYZ({
@@ -44,15 +61,8 @@ var dataTileLayer = new TileLayer({
       ATTRIBUTION,
     ],
     opaque: false,
-    url: 'https://www.bathmap.net/api/relative/{z}/{x}/{y}',
+    url: 'https://www.bathmap.net/api/relative/'+event.target.value+'/{z}/{x}/{y}',
     tileGrid : tileGrid,
-  }),
-});
-
-//Map background from OpenStreetMap
-const backgroundLayer = new TileLayer({
-  source: new OSM({
-    tileGrid : tileGrid
   }),
 });
 
@@ -70,7 +80,6 @@ var map = new Map({
   }),
 
 });
-
 //Displays Zoom level for debugging
 var zoomLevel = map.getView().getZoom();
 
@@ -89,3 +98,7 @@ map.on("pointermove", function (evt) {
   var tileLocation = "Tile location: " + tileCoord[0] + "/" + tileCoord[2] + "/" + tileCoord[1];
   document.getElementById("tile-location").innerHTML = tileLocation;
 });
+})
+
+
+
