@@ -6,6 +6,7 @@
     <title>Bathmap API Viewer</title>
     <link rel="stylesheet" href="node_modules/ol/ol.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <style>
       
       .map {
@@ -28,24 +29,82 @@
     </style>
   </head>
   <body>
-    <div class="header">
-      <p><a href="https://www.bathmap.net/">
-        <img src="/images/bathMapLogo.png" alt="Logo" style="width:150px;height:150px;float:right" ></p></a>
-      <h1>bathmap</h1>
-      <p>API Viewer</p>
-      <div id = "zoomLevel"></div>
-      <div id = "tile-location"></div>
+    <nav class="navbar navbar-expand-md nav-fill nav-pills navbar-light bg-white shadow-sm">
+      <div class="container">
+          <a class="navbar-brand text-teal-500" href="google.com">
+              Bathmap
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto">
+                  <li class="nav-item " ><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="bathmap.net">Documentation</a></li>
+                  <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="bathmap.net">Tutorial</a></li>
+                  <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="bathmap.net">About Us</a></li>
+
+              </ul>
+          </div>
+         </div>
+        </nav>  
+      <a href="https://www.bathmap.net/" class="d-flex justify-content-center">
+        <img src="/images/bathMapLogo.png" alt="Logo" style="width:20em;height:20em;float:right" >
+      </a>
+      <div class="d-flex justify-content-center">
+          <select name="gridID" id="grid_selector">
+            <option value="" selected>Select A Location</option>
+            <option value="01a">Vermont (01a)</option>
+            <option value="01b">Maine (01b)</option>
+            <option value="02a">New York State (02a)</option>
+            <option value="02b">Boston (02b)</option>
+            <option value="03">New York City (03)</option>
+            <option value="04">Eastern Maryland (04)</option>
+            <option value="05">Virginia (05)</option>
+            <option value="06" >Kitty Hawk (06)</option>
+            <option value="07">Charlotte (07)</option>
+            <option value="08">Mrytle Beach (08)</option>
+            <option value="09">Jacksonville (09)</option>
+            <option value="10">Bahamas (10)</option>
+            <option value="11">Dominican Republic (11)</option>
+            <option value="12">Cancun (12)</option>
+            <option value="13">West Florida (13)</option>
+            <option value="14"> New Orleans (14)</option>
+            <option value="15"> Gulf of Mexico (15)</option>
+            <option value="16">Lake Erie (16)</option>
+            <option value="17">Lake Michigan (17)</option>
+            <option value="18">Lake Superior (18)</option>
+            <option value="19">Lake Huron (19)</option>
+            <option value="20">California (20)</option>
+            <option value="21">Washington State (21)</option>
+            <option value="22">Western Canada (22)</option>
+            <option value="23">Gulf of Alaska (23)</option>
+            <option value="24">Beaufort Sea (24)</option>
+            <option value="25">Bering Sea (25)</option>
+            <option value="26">North Pacific Ocean (26)</option>
+            <option value="27">Anchorage (27)</option>
+            <option value="28">Hawaii (28)</option>
+            <option value="29">East China Sea (29) </option>
+          </select>
+      </div>
+        <div class="d-flex justify-content-center">
+          <div>
+            <div id = "zoomLevel"></div>
+            <div id = "tile-location"></div>
+          </div>
+
+        </div> 
     </div> 
 
     
     
-    <div id="map" class="map"></div>
+    <div id="map" class="map border border-3 m-4"></div>
     <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
     <script src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js"></script>
     <script type="module" src="main.js"></script>
 
-    <h2>Our Links</h2>
-    <a href="https://github.com/Salisbury-University/noaa-map"><img src = "/images/GitHub_logo.png" 
-      alt="GitHub" style="width:50px;height:50px;"></a>
     
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
   </body>
+  </html>
