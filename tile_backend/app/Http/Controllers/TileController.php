@@ -12,6 +12,7 @@ use App\Http\Requests\UpdateTileRequest;
 
 class TileController extends Controller
 {
+    const EMPTY_TILE_ID='147ca8bf480d89b17921e24e3c09edcf1cb2228b';
     /**
      * Display a listing of the resource.
      */
@@ -85,5 +86,16 @@ class TileController extends Controller
             return ["message"=>"no tile with that location"];
         }
         
+    }
+    public function true_relative($z, $y, $x){
+        
+        $location=DB::table("location")->where("tileID","!=",self::EMPTY_TILE_ID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
+        if(isset($location)){
+            $tile=DB::table("tile")->where("id",$location->tileID)->where("id",'!=',self::EMPTY_TILE_ID)->first();
+            if(isset($tile)){
+                return response($tile->image, 200)->header('Content-Type', 'image/png');
+            }
+        }
+        return ["message"=>"no tile with that location"];
     }
 }

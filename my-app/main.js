@@ -61,7 +61,7 @@ var dataTileLayer = new TileLayer({
       ATTRIBUTION,
     ],
     opaque: false,
-    url: 'https://www.bathmap.net/api/relative/'+event.target.value+'/{z}/{x}/{y}',
+    url: 'https://bathmap/api/relative/'+event.target.value+'{z}/{x}/{y}',
     tileGrid : tileGrid,
   }),
 });
@@ -95,7 +95,7 @@ map.getView().on('change:resolution', function() {
 //Display Z/X/Y of mouse location
 map.on("pointermove", function (evt) {
   var tileCoord = tileGrid.getTileCoordForCoordAndZ(evt.coordinate, map.getView().getZoom());
-  var tileLocation = "Tile location: " + tileCoord[0] + "/" + tileCoord[2] + "/" + tileCoord[1];
+  var tileLocation = "Tile location: " + tileCoord[0] + "/" + tileCoord[1] + "/" + tileCoord[2];
   document.getElementById("tile-location").innerHTML = tileLocation;
 });
 })
