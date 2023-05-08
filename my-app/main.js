@@ -61,7 +61,7 @@ var dataTileLayer = new TileLayer({
       ATTRIBUTION,
     ],
     opaque: false,
-    url: 'https://bathmap/api/relative/'+event.target.value+'{z}/{x}/{y}',
+    url: 'https://bathmap.net/api/relative/'+event.target.value+'{z}/{x}/{y}',
     tileGrid : tileGrid,
   }),
 });
