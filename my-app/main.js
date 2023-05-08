@@ -61,7 +61,14 @@ var dataTileLayer = new TileLayer({
       ATTRIBUTION,
     ],
     opaque: false,
-    url: 'https://bathmap.net/api/relative/'+event.target.value+'{z}/{x}/{y}',
+    tileUrlFunction:  function(tileCoord){
+      var z = tileCoord[0];
+      var x = tileCoord[1]; 
+      var y = tileCoord[2];
+      var yFlipped = Math.pow(2, z) - y - 1; // flip the Y axis
+      var yAdjusted = yFlipped; // adjust the Y value 
+      return 'https://bathmap.net/api/relative/'+event.target.value+'{z}/{x}/{y}';
+    },
     tileGrid : tileGrid,
   }),
 });
