@@ -146,17 +146,24 @@ SQLcursor.execute("select gridID,count(*) from location group by gridID")
 rows3 = SQLcursor.fetchall()
 print(rows3)
 """
-SQLcursor.execute("select count(*) from location")
-rows6 = SQLcursor.fetchall()
+"""
+SQLcursor.execute("delete from location where gridID = '09'")
+mSQL.commit()
+"""
+
+conn4 = sqlite3.connect(dest)
+c4 = conn4.cursor()
+c4.execute("select count(*) from map")
+rows6 = c4.fetchall()
 count = rows6[0][0]
 count2 = 0
-
 
 data = (florms, rows3[0][0], rows3[1][0])
 SQLcursor.execute('Insert into grid (gridID, gridBounds, gridCenter) values (%s,%s,%s)', data)
 mSQL.commit()
 
 print("grid finished")
+
 for f in rows2:
     data = (florms,f[0],f[1])
     SQLcursor.execute('INSERT INTO tile(gridID,id,image) VALUES (%s,%s,%s)', data)
@@ -169,7 +176,7 @@ for e in rows:
     dirName = str(e[2])
     if not os.path.isfile(dirName):
         data = (e[0],e[2],e[1],florms,e[4])
-        print("Remaining tiles: %d",count-count2)
+        print("Remaining tiles: ",count-count2)
         count2 = count2+1
         SQLcursor.execute('INSERT INTO location (map_z,map_row,map_col,gridID,tileID) VALUES (%s, %s, %s, %s, %s)', data)
         mSQL.commit()
