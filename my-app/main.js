@@ -77,12 +77,12 @@ var dataTileLayer = new TileLayer({
 var map = new Map({
   target: 'map',
   controls: defaultControls().extend([new FullScreen()]),
-  layers: [//backgroundLayer,
+  layers: [backgroundLayer,
   dataTileLayer],
   view: new View({
     maxZoom: 18,
     minZoom: 1,
-    center: [-8018982.89, -4035116.36],
+    center: [-8018982.89, 4035116.36],
     zoom: 6,
   }),
 
