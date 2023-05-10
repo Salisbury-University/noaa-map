@@ -67,7 +67,7 @@ var dataTileLayer = new TileLayer({
       var y = tileCoord[2];
       var yFlipped = Math.pow(2, z) - y - 1; // flip the Y axis
       var yAdjusted = yFlipped; // adjust the Y value 
-      return 'https://bathmap.net/api/relative/'+event.target.value+'{z}/{x}/{y}';
+      return 'https://bathmap.net/api/relative/'+event.target.value+ z + '/' + x + '/'+yAdjusted ;
     },
     tileGrid : tileGrid,
   }),
