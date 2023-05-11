@@ -33,7 +33,47 @@
                 </div>
               
                 <div class="mt-16">
+                    <div class="mb-4">
+                        <a href="http://bathmap.net:5173" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+                            <div class="flex justify-between w-full items-center">
+                                <div class="h-16 w-16 bg-sky-100 dark:bg-blue-800/20 flex items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2 17.613l3.419-1.14A5 5 0 0 1 6 16.317V2.387L2 3.721v13.892zm-.662 2.328A1 1 0 0 1 0 19V3a1 1 0 0 1 .706-.956L5.419.473a5 5 0 0 1 3.162 0l3.47 1.157a3 3 0 0 0 1.898 0L18.662.059A1 1 0 0 1 20 1v16a1 1 0 0 1-.706.956l-4.713 1.571a5 5 0 0 1-3.162 0l-3.47-1.157a3 3 0 0 0-1.898 0l-4.713 1.571zM18 16.28V2.387l-3.419 1.14a5 5 0 0 1-.581.156v13.93l4-1.334zm-6 1.334V3.683a5 5 0 0 1-.581-.156L8 2.387v13.93a5 5 0 0 1 .581.156L12 17.613z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h2 class="m-6 text-xl font-semibold text-gray-900 dark:text-white">See the Maps</h2>
+                                    <p class="m-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                        Take a first hand look at the bathymetric data with our interactive map viewer built on OpenLayers. 
+                                    </p>
+                                </div>            
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-blue-500 w-6 h-6 mx-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                                </svg>
+                       
+                            </div>
+                        </a>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                        <a href="/about" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+                            <div>
+                                <div class="h-16 w-16 bg-sky-100 dark:bg-blue-800/20 flex items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                                    </svg>
+                                </div>
+        
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">About</h2>
+        
+                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Learn more about the team behind this project! Learn more about bathymetric mapping and the worlds oceans!
+                                </p>
+                            </div>
+        
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-blue-500 w-6 h-6 mx-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                            </svg>
+                        </a>
                         <a href="{{route("documentation")}}"" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
                             <div>
                                 <div class="h-16 w-16 bg-sky-100 dark:bg-sky-800/20 flex items-center justify-center rounded-full">
@@ -74,25 +114,7 @@
                             </svg>
                         </a>
 
-                        <a href="/about" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
-                            <div>
-                                <div class="h-16 w-16 bg-sky-100 dark:bg-blue-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">About</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Learn more about the team behind this project! Learn more about bathymetric mapping and the worlds oceans!
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-blue-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
+          
                         <a href="https://github.com/Salisbury-University/noaa-map" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
                                 <div>
                                     <div class="h-16 w-16 bg-sky-100 dark:bg-blue-800/20 flex items-center justify-center rounded-full">
@@ -113,6 +135,7 @@
                         </a>
                     </div>
                 </div>
+
 
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
