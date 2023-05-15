@@ -17,7 +17,21 @@ class TrackTokenUsage
      */
     public function handle(Request $request, Closure $next): Response
     {   
-        dd("hello");
+        $requestToken=explode("|",$request->header('authorization'));
+        if(auth()->user()){
+            $userTokens=auth()->user()->tokens;
+            if($userTokens){
+            foreach($userTokens as $token){
+                if(hash("sha256",$requestToken[1])==$token->token){
+                    $token->uses++;
+                    $token->save();
+                    return $next($request);
+    
+                }
+            }
+            }
+        }
+
 
         
         return $next($request);
