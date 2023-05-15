@@ -30,5 +30,5 @@ Route::get("/tutorial",[InformationController::class,'tutorial'])->name('tutoria
 
 
 
-//Route::resource('/tokens',TokenController::class)->middleware("auth");
+Route::resource('/tokens',TokenController::class)->middleware("auth");
 
