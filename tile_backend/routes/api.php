@@ -17,15 +17,27 @@ use App\Http\Controllers\TokenController;
 */
 
 
+//internal route for our viewer -- these need to go first otherwise it will get confused and think that relative is a grid id
+Route::get('/relative/internal/{gridID}/{z}/{y}/{x}',[TileController::class,"relative_internal"]);
+Route::get('/relative/internal/{z}/{y}/{x}',[TileController::class,"true_relative_internal"]);
 
-Route::get('/welcome',function(Request $request){
-    return ["message"=>"Hello BathMap User!"];
-});
 
-Route::get('/version',function(Request $request){
-    return ["version"=>"1.0"];
-});
 
-Route::get('/relative/{gridID}/{z}/{y}/{x}',[TileController::class,"relative"]);
-Route::get('/coordinate/{lattitude}/{longitude}/{scope}',[TileController::class,"coordinate"]);
-Route::get('/relative/{z}/{y}/{x}',[TileController::class,"true_relative"]);
+ //protected routes
+Route::group(["middleware"=>"auth:sanctum"] ,function () {
+    Route::get('/welcome',function(Request $request){
+        return ["message"=>"Hello BathMap User!"];
+    });
+    Route::get('/version',function(Request $request){
+        return ["version"=>"1.0"];
+    });
+    Route::get('/relative/{gridID}/{z}/{y}/{x}',[TileController::class,"relative"]);
+    Route::get('/relative/{z}/{y}/{x}',[TileController::class,"true_relative"]);
+    
+}); 
+
+
+
+//Route::get('/coordinate/{lattitude}/{longitude}/{scope}',[TileController::class,"coordinate"]);
+
+

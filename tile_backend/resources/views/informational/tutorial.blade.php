@@ -11,14 +11,13 @@
                 <div class="card-header">{{ __('Tutorial') }}</div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        {{-- we can add this back in if i ever fix tokens --}}
-                        {{-- <li class="list-group-item">
+                        <li class="list-group-item">
                             Log into BathMap.net or create an account if you don't already have one.
                         </li>
                         <li class="list-group-item"> 
                             Navigate to the My Tokens page and click the green New Token button. Your token will be shown to you at the top of page in a 
                             green banner. Put this is a safe place because once you log out, you won't be able to see the token again. 
-                        </li> --}}
+                        </li>
                         <li class="list-group-item"> 
 
                             <div>Making a request with javascript:</div>
@@ -27,7 +26,7 @@
                                     method: 'GET',
                                     headers: {
                                       Accept: 'application/json',
-                                      {{-- Authorization: 'Bearer <strong>YOUR_TOKEN_HERE</strong>' --}}
+                                      Authorization: 'Bearer <strong>YOUR_TOKEN_HERE</strong>'
                                     }
                                   };
                                   
@@ -43,7 +42,7 @@
                                 curl --request GET \
                                 --url https://bathmap.net/api/welcome \
                                 --header 'Accept: application/json' \
-                                {{-- --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>' --}}
+                                --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>'
                             </code></pre>
                         </li>
                         <li class="list-group-item">
@@ -56,7 +55,7 @@
                                 payload = ""
                                 headers = {
                                     "Accept": "application/json",
-                                    {{-- "Authorization": "Bearer 8|x8o3MChM52gqyfgJKu2WaVB7bCYxo1MJSsAlqbrG" --}}
+                                    "Authorization": "Bearer YOUR_TOKEN_HERE"
                                 }
 
                                 response = requests.request("GET", url, data=payload, headers=headers)

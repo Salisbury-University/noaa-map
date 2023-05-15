@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tile;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
@@ -87,6 +88,20 @@ class TileController extends Controller
         }
         
     }
+    public function relative_internal(Request $request,$gridID, $z, $y, $x){
+        
+        if($request->ip()==env("VIEWER_IP")){
+            $location=DB::table("location")->where('gridID',$gridID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
+            if(isset($location)){
+                $tile=DB::table("tile")->where("id",$location->tileID)->first();
+                return response($tile->image, 200)->header('Content-Type', 'image/png');
+            }
+            return ["message"=>"no tile with that location"];
+        }
+        return response(["message"=>"unauthorized access"],401);
+        
+        
+    }
     public function true_relative($z, $y, $x){
         
         $location=DB::table("location")->where("tileID","!=",self::EMPTY_TILE_ID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
@@ -97,5 +112,20 @@ class TileController extends Controller
             }
         }
         return ["message"=>"no tile with that location"];
+    }
+    
+    public function true_relative_internal(Request $request, $z, $y, $x){
+        if($request->ip()==env("VIEWER_IP")){
+
+            $location=DB::table("location")->where("tileID","!=",self::EMPTY_TILE_ID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
+            if(isset($location)){
+                $tile=DB::table("tile")->where("id",$location->tileID)->where("id",'!=',self::EMPTY_TILE_ID)->first();
+                if(isset($tile)){
+                    return response($tile->image, 200)->header('Content-Type', 'image/png');
+                }
+            }
+            return ["message"=>"no tile with that location"];
+        }
+        return response(["message"=>"unauthorized access"],401);
     }
 }

@@ -81,7 +81,7 @@ function create_data_tile_layer(tile_id){
         let y = tileCoord[2];
         let yFlipped = Math.pow(2, z) - y - 1; // flip the Y axis
         let yAdjusted = yFlipped; // adjust the Y value 
-        return 'https://bathmap.net/api/relative/'+tile_id+ z + '/' + x + '/'+yAdjusted ;
+        return 'http://localhost/api/relative/internal/'+tile_id+ z + '/' + x + '/'+yAdjusted ;
       },
       tileGrid : tileGrid,
     }),
