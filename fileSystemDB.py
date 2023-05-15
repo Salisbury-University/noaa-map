@@ -6,10 +6,11 @@ import sqlite3
 import re
 import mysql.connector
 
+db_password=input("Please enter the database password: ")
 mSQL = mysql.connector.connect(
     host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",
     username = "admin",
-    password = "towMater",
+    password = "db_password",
     database = "bathmap_mysql_1"
 )
 
