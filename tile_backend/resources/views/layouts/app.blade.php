@@ -12,6 +12,14 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <script>
+        window.appConfig = {
+            appUrl: @json(env('APP_URL')),
+            olKey: @json(env('OL_KEY')),
+
+        };
+    </script>
+
 
     <!-- Scripts -->
     @viteReactRefresh
