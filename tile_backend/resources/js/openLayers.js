@@ -5,8 +5,8 @@ import View from 'ol/View.js';
 import XYZ from 'ol/source/XYZ.js';
 import TileGrid from 'ol/tilegrid/TileGrid';
 import {FullScreen, defaults as defaultControls} from 'ol/control.js';
+import TileState from 'ol/TileState.js'
 
-console.log("help");
 let tileGrid = new TileGrid({
     extent: [-20037508.34, -20037508.34, 20037508.34, 20037508.34],
     resolutions: [
@@ -80,9 +80,25 @@ let tileGrid = new TileGrid({
           let x = tileCoord[1]; 
           let y = tileCoord[2];
           let yFlipped = Math.pow(2, z) - y - 1; // flip the Y axis
-          let yAdjusted = yFlipped; // adjust the Y value 
-          return 'https://bathmap.net/api/relative/internal/'+tile_id+ z + '/' + x + '/'+yAdjusted ;
+          return window.appConfig.appUrl + '/api/relative/'+tile_id+ z + '/' + x + '/'+yFlipped ;
         },
+        tileLoadFunction: function (tile,src){
+          const xhr = new XMLHttpRequest();
+          xhr.responseType = 'blob';
+          xhr.open('GET', src,'true');
+          xhr.setRequestHeader('Authorization', 'Bearer ' + window.appConfig.olKey);
+          xhr.onload = (e) => {
+            if (xhr.status === 200) {
+              const blob = xhr.response;
+              const objectURL = URL.createObjectURL(blob);
+              tile.getImage().src = objectURL; // Load the image onto the tile
+            }
+            else{
+              tile.setState(TileState.ERROR);
+            }
+          };
+          xhr.send(); 
+          },
         tileGrid : tileGrid,
       }),
     });
