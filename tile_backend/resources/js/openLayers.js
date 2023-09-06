@@ -68,8 +68,6 @@ let tileGrid = new TileGrid({
   
   //Create Layer displaying API data
   function create_data_tile_layer(tile_id){
-    var computed_url = window.appConfig.appUrl + '/api/relative/'+tile_id+ '{z}/{x}/{-y}';
-
     let dataTileLayer = new TileLayer({
       source: new XYZ({
         attributions: [
@@ -77,7 +75,7 @@ let tileGrid = new TileGrid({
           ATTRIBUTION,
         ],
         opaque: false,
-        url: computed_url,
+        url: window.appConfig.appUrl + '/api/relative/'+tile_id+ '{z}/{x}/{-y}',
         tileLoadFunction: function (tile,src){
           const xhr = new XMLHttpRequest();
           xhr.responseType = 'blob';
