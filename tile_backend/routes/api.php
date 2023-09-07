@@ -16,13 +16,6 @@ use App\Http\Controllers\TokenController;
 |
 */
 
-
-//internal route for our viewer -- these need to go first otherwise it will get confused and think that relative is a grid id
-Route::get('/relative/internal/{gridID}/{z}/{y}/{x}',[TileController::class,"relative_internal"]);
-Route::get('/relative/internal/{z}/{y}/{x}',[TileController::class,"true_relative_internal"]);
-
-
-
  //protected routes
 Route::group(["middleware"=>"auth:sanctum"] ,function () {
     Route::get('/welcome',function(Request $request){
