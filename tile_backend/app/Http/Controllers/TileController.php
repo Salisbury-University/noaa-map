@@ -86,18 +86,6 @@ class TileController extends Controller
         }
     }
 
-    public function relative_internal(Request $request,$gridID, $z, $y, $x){
-        // dd($request->ip(),env("VIEWER_IP"));
-        if($request->ip()==env("VIEWER_IP") || True){
-            $location=DB::table("location")->where('gridID',$gridID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
-            if(isset($location)){
-                $tile=DB::table("tile")->where("id",$location->tileID)->first();
-                return response($tile->image, 200)->header('Content-Type', 'image/png');
-            }
-            return response(["message"=>"no tile with that location"],404);
-        }
-        return response(["message"=>"unauthorized access - internal use only"],401);  
-    }
 
     public function true_relative($z, $y, $x){
         
@@ -109,20 +97,5 @@ class TileController extends Controller
             }
         }
         return response(["message"=>"no tile with that location"],404);
-    }
-    
-    public function true_relative_internal(Request $request, $z, $y, $x){
-        if($request->ip()==env("VIEWER_IP") || True){
-
-            $location=DB::table("location")->where("tileID","!=",self::EMPTY_TILE_ID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
-            if(isset($location)){
-                $tile=DB::table("tile")->where("id",$location->tileID)->where("id",'!=',self::EMPTY_TILE_ID)->first();
-                if(isset($tile)){
-                    return response($tile->image, 200)->header('Content-Type', 'image/png');
-                }
-            }
-            return response(["message"=>"no tile with that location"],404);
-        }
-        return response(["message"=>"unauthorized access"],401);
     }
 }

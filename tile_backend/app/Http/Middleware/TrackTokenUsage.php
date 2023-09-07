@@ -23,9 +23,15 @@ class TrackTokenUsage
             if($userTokens){
             foreach($userTokens as $token){
                 if(hash("sha256",$requestToken[1])==$token->token){
-                    $token->uses++;
-                    $token->save();
-                    return $next($request);
+                    if($token->uses < $token->max_usage){
+                        $token->uses++;
+                        $token->save();
+                        return $next($request);
+                    }
+                    else{
+                        return response(["message"=>"your token is over its usage limit of ". $token->max_usage],429);
+                    }
+
     
                 }
             }
