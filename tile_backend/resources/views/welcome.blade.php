@@ -29,7 +29,7 @@
 
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div >
-                    <img src="{{asset("./logo.png")}}" style="height:500px;"class =" border  rounded max-width m-auto "alt="">
+                    <img src="{{asset("./logo.png")}}" style="height:300px;"class =" border  rounded max-width m-auto "alt="">
                 </div>
               
                 <div class="mt-16">
