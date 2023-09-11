@@ -75,13 +75,7 @@ let tileGrid = new TileGrid({
           ATTRIBUTION,
         ],
         opaque: false,
-        tileUrlFunction:  function(tileCoord){
-          let z = tileCoord[0];
-          let x = tileCoord[1]; 
-          let y = tileCoord[2];
-          let yFlipped = Math.pow(2, z) - y - 1; // flip the Y axis
-          return window.appConfig.appUrl + '/api/relative/'+tile_id+ z + '/' + x + '/'+yFlipped ;
-        },
+        url: window.appConfig.appUrl + '/api/relative/'+tile_id+ '{z}/{x}/{-y}',
         tileLoadFunction: function (tile,src){
           const xhr = new XMLHttpRequest();
           xhr.responseType = 'blob';
