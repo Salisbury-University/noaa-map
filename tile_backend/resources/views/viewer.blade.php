@@ -5,7 +5,7 @@
         <img src="{{asset("./logo.png")}}" alt="Logo" style="width:20em;height:20em;float:right" >
       </a>
       <div class="d-flex justify-content-center">
-          <select name="gridID" id="grid_selector">
+          <select name="gridID" id="grid_selector" multiple>
             <option value="" selected >All Locations</option>
             <option value="01a/">Vermont (01a)</option>
             <option value="01b/">Maine (01b)</option>

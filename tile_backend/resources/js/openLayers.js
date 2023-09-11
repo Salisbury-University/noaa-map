@@ -68,6 +68,18 @@ let tileGrid = new TileGrid({
   
   //Create Layer displaying API data
   function create_data_tile_layer(tile_id){
+    var selected = [];
+    for (var option of document.getElementById('grid_selector').options)
+    {
+      if (option.selected) {
+        selected.push(option.value);
+      }
+    }
+    alert(selected);
+    var myURLs = [];
+    for(var i = 0;i < selected.length; i++){
+      myURLs.push(window.appConfig.appUrl + '/api/relative/'+ selected[i] + '{z}/{x}/{-y}');
+    }
     let dataTileLayer = new TileLayer({
       source: new XYZ({
         attributions: [
@@ -75,7 +87,8 @@ let tileGrid = new TileGrid({
           ATTRIBUTION,
         ],
         opaque: false,
-        url: window.appConfig.appUrl + '/api/relative/'+tile_id+ '{z}/{x}/{-y}',
+        //urls: [window.appConfig.appUrl + '/api/relative/'+ tile_id + '{z}/{x}/{-y}', window.appConfig.appUrl + '/api/relative/'+ '07/' + '{z}/{x}/{-y}'],
+        urls:myURLs,
         tileLoadFunction: function (tile,src){
           const xhr = new XMLHttpRequest();
           xhr.responseType = 'blob';
