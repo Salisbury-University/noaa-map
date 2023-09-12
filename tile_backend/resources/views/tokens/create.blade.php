@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="d-flex justify-content-center m-2">
-                <img src="{{asset("./logo.png")}}" class =" w-50 "alt="">
+                <img src="{{asset("./logo.png")}}" class =" w-25 "alt="">
             </div>            <div class="card">
                 <div class="card-header">{{ __('Create Token') }}</div>
                 <div class="card-body">
