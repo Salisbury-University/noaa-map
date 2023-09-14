@@ -8,14 +8,22 @@
 @import 'bootstrap/scss/bootstrap';
 
 .btn-primary, .btn-primary:active, .btn-primary:visited {
-    background-color: #eef0f1 !important;
+    background-color: #f7f7f7 !important;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    border-color: #eef0f1;
+    border-color: #f7f7f7;
 }
 
 .btn-primary:hover {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-    border-color: #eef0f1;
+    border-color: #f7f7f7;
+}
+
+h1{
+    color: #005eae;
+}
+
+p{
+    color: #1aa7d8;
 }
   
 
