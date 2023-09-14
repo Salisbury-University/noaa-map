@@ -10,10 +10,12 @@
 
         <title>Bathymetric Tile API</title>
 
-        <!-- Fonts -->
+        <!-- Fonts 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>
+        -->
+
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-blue-500 selection:text-white">
@@ -31,13 +33,30 @@
                 </div>
             @endif --}}
 
+            
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div >
                     <img src="{{asset("./logo.png")}}" style="height:300px;"class =" border  rounded max-width m-auto "alt="">
                 </div>
-              
+                
+                
+                <div class = container>
+                    <div class = "row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <a href="/viewer" class="btn btn-info btn-lg btn-block" role="button">  
+                            <h1 class="display-4">See the maps</h1>
+                            <p class="lead">Take a first hand look at the bathymetric data with our interactive map viewer built on OpenLayers.</p>
+                            </a>
+                            </div>        
+                    </div>
+
+                </div>
+                
+                <!--
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
                         <a href="/viewer" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
                             <div>
                                 <div class="h-16 w-16 bg-sky-100 dark:bg-blue-800/20 flex items-center justify-center rounded-full">
@@ -158,6 +177,8 @@
                         </a>
                     </div>
                 </div>
+                -->
+
 
 
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
