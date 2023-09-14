@@ -44,7 +44,7 @@
                     <div class = "row">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-8">
-                            <a href="/viewer" class="btn btn-info btn-lg btn-block" role="button">  
+                            <a href="/viewer" class="btn btn-primary btn-rounded btn-lg btn-block" role="button">  
                             <h1 class="display-4">See the maps</h1>
                             <p class="lead">Take a first hand look at the bathymetric data with our interactive map viewer built on OpenLayers.</p>
                             </a>
