@@ -31,7 +31,8 @@
         <nav class="navbar navbar-expand-md nav-fill nav-pills navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-teal-500" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                   <!-- {{ config('app.name', 'Laravel') }}-->
+                   <img src="{{asset("./logo.png")}}" class =" w-100 "alt="" width=500px height=50px background-size=150px>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
