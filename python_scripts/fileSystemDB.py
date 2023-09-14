@@ -6,11 +6,10 @@ import sqlite3
 import re
 import mysql.connector
 
-db_password=input("Please enter the database password: ")
 mSQL = mysql.connector.connect(
     host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",
     username = "admin",
-    password = "db_password",
+    password = "towMater",
     database = "bathmap_mysql_1"
 )
 
@@ -100,7 +99,7 @@ TABLES:
 -map
 -metadata
 """
-
+"""
 inp = input("Input which grid to translate: ")
 n = 0
 #conn3 = sqlite3.connect('./mbtiles/noaaMapDB#3.DB')
@@ -131,8 +130,20 @@ c3.execute('select value from metadata where name = "bounds" or name = "center"'
 rows = c.fetchall()
 rows2 = c2.fetchall()
 rows3 = c3.fetchall()
+"""
 SQLcursor = mSQL.cursor()
 isblank = 0
+inf = 0
+
+while inf == 0: 
+    if(mSQL.is_connected()):
+        print("Is connected")
+    else:
+        print("Is not connected. Attempting to reconnect.")
+        
+        
+    
+
 
 """
 SQLcursor.execute('Delete from testLocation')
@@ -151,14 +162,15 @@ print(rows3)
 SQLcursor.execute("delete from location where gridID = '09'")
 mSQL.commit()
 """
-
+"""
 conn4 = sqlite3.connect(dest)
 c4 = conn4.cursor()
 c4.execute("select count(*) from map")
 rows6 = c4.fetchall()
 count = rows6[0][0]
 count2 = 0
-
+"""
+"""
 data = (florms, rows3[0][0], rows3[1][0])
 SQLcursor.execute('Insert into grid (gridID, gridBounds, gridCenter) values (%s,%s,%s)', data)
 mSQL.commit()
@@ -181,5 +193,5 @@ for e in rows:
         count2 = count2+1
         SQLcursor.execute('INSERT INTO location (map_z,map_row,map_col,gridID,tileID) VALUES (%s, %s, %s, %s, %s)', data)
         mSQL.commit()
-
+"""
 print("GRID 1A FINISHED")
