@@ -10,11 +10,10 @@
 
         <title>Bathymetric Tile API</title>
 
-        <!-- Fonts 
+        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        -->
+        
 
     </head>
     <body class="antialiased">
@@ -42,13 +41,12 @@
                 
                 <div class = container>
                     <div class = "row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-8">
-                            <a href="/viewer" class="btn btn-primary btn-rounded btn-lg btn-block" role="button">  
-                            <h1 class="display-4">See the maps</h1>
-                            <p class="lead">Take a first hand look at the bathymetric data with our interactive map viewer built on OpenLayers.</p>
+                        <div class="d-grid gap-2">
+                            <a href="/viewer" class="btn btn-primary btn-rounded btn-block" role="button">  
+                                <h1 class="display-4">See the maps</h1>
+                                <p class="lead">Take a first hand look at the bathymetric data with our interactive map viewer built on OpenLayers.</p>
                             </a>
-                            </div>        
+                        </div>        
                     </div>
 
                 </div>
