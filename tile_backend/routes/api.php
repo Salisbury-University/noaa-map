@@ -26,7 +26,7 @@ Route::group(["middleware"=>"auth:sanctum"] ,function () {
     });
     Route::get('/relative/{gridID}/{z}/{y}/{x}',[TileController::class,"relative"]);
     Route::get('/relative/{z}/{y}/{x}',[TileController::class,"true_relative"]);
-    
+    Route::get('/coordinate/{lat}/{long}/{zoom}',[TileController::class, "coordinate"]);
 }); 
 
 
