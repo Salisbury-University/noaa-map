@@ -54,8 +54,25 @@ let tileGrid = new TileGrid({
   function render_map(tile_id){
   
     clear_map();
+    var selected = [];
+    for (var option of document.getElementById('grid_selector').options)
+    {
+      if (option.selected) {
+        selected.push(option.value);
+      }
+    }
+    alert(selected);
+    var myURLs = [];
+    for(var i = 0;i < selected.length; i++){
+      let dataTileLayer=create_data_tile_layer(tile_id);
+      myURLs.push(dataTileLayer);
+    }
+    alert(myURLs);
     let dataTileLayer=create_data_tile_layer(tile_id);
-    let map=initialize_map(dataTileLayer);  
+    let map=initialize_map(myURLs); 
+    
+    
+      
     display_zoom_level(map);
     display_mouse_xyz(map);
   }
@@ -75,11 +92,11 @@ let tileGrid = new TileGrid({
         selected.push(option.value);
       }
     }
-    alert(selected);
     var myURLs = [];
     for(var i = 0;i < selected.length; i++){
       myURLs.push(window.appConfig.appUrl + '/api/relative/'+ selected[i] + '{z}/{x}/{-y}');
     }
+    
     let dataTileLayer = new TileLayer({
       source: new XYZ({
         attributions: [
@@ -87,8 +104,9 @@ let tileGrid = new TileGrid({
           ATTRIBUTION,
         ],
         opaque: false,
-        //urls: [window.appConfig.appUrl + '/api/relative/'+ tile_id + '{z}/{x}/{-y}', window.appConfig.appUrl + '/api/relative/'+ '07/' + '{z}/{x}/{-y}'],
-        urls:myURLs,
+       
+        url: window.appConfig.appUrl + '/api/relative/'+ tile_id + '{z}/{x}/{-y}',
+        //urls:myURLs,
         tileLoadFunction: function (tile,src){
           const xhr = new XMLHttpRequest();
           xhr.responseType = 'blob';
@@ -113,12 +131,15 @@ let tileGrid = new TileGrid({
   }
   
   //initialize map with background, noaa data tile layer and starting coordinates
-  function initialize_map(dataTileLayer){
+  function initialize_map(dataTileLayers){
+
+    
+    
     let map = new Map({
       target: 'map',
       controls: defaultControls().extend([new FullScreen()]),
-      layers: [backgroundLayer,
-      dataTileLayer],
+      layers: [backgroundLayer, 
+        ...dataTileLayers],
       view: new View({
         maxZoom: 18,
         minZoom: 1,
