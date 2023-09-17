@@ -88,6 +88,7 @@ class TileController extends Controller
             $latitude = rad2deg(atan(sinh(pi() * (1 - 2 * $y / pow(2, $z)))));
             //works
             // dd( array('latitude' => $latitude, 'longitude' => $longitude));
+
         
         
         $location=DB::table("location")->where("tileID","!=",self::EMPTY_TILE_ID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
@@ -103,8 +104,10 @@ class TileController extends Controller
     public function coordinate($lat, $long, int $zoom){
         $x = (int)(($long + 180) / 360 * pow(2, $zoom));
         $y = (int)((1 - log(tan(deg2rad($lat)) + 1 / cos(deg2rad($lat))) / pi()) / 2 * pow(2, $zoom));
-        //this gives coordinates, but we need to factor in the -y
+        $our_y=($zoom * $zoom) - $y - 1;
+        //this gives coordinates, but we need to factor in the - y
+
         $tile=$this->true_relative($zoom, $y, $x);
-        return compact("tile","x","y","zoom");
+        return compact("tile","x","y","zoom","our_y");
     }
 }
