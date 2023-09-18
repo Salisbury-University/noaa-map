@@ -9,19 +9,30 @@ import sqlite3
 import mysql.connector
 import ctypes
 
-def implement(index,arr,gID,size):
+
+def implement(lock,index,arr,gID,size):
     mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1")
     SQLCursor1 = mSQL1.cursor()
-    while(index.value < 25):
-        #z, row, column, gID, tileID
-        data = (arr[index.value][0],arr[index.value][2],arr[index.value][1],gID,arr[index.value][3])
-        SQLCursor1.execute("insert into location values (%s,%s,%s,%s,%s)",data)
-        #mSQL1.commit()
-        #print(arr[index.value][0],arr[index.value][2],arr[index.value][1],gID,arr[index.value][3])
-        index.value = index.value + 1
+    while(index.value < 10000 and index.value >= 0):
+        lock.acquire()
+        try:
+            #z, row, column, gID, tileID
+            data = (arr[index.value][0],arr[index.value][2],arr[index.value][1],gID,arr[index.value][3])
+            SQLCursor1.execute("insert into location values (%s,%s,%s,%s,%s)",data)
+            #mSQL1.commit()
+            #print(arr[index.value][0],arr[index.value][2],arr[index.value][1],gID,arr[index.value][3])
+            index.value = index.value + 1
+            print("tiles remaining: ", 10000-index.value)
+        finally:
+            lock.release()
 
        
 if __name__ == "__main__":
+    mSQL = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1")
+    SQLCursor = mSQL.cursor()
+    #SQLCursor.execute("delete FROM bathmap_mysql_1.location where gridID = '15'")
+    #mSQL.commit()
+    
     inp = input("Input which grid to translate: ")
     n = 0
     gridID = 0
@@ -44,13 +55,15 @@ if __name__ == "__main__":
     row = cursor.fetchall()
     cursor.execute("select count(*) from map")
     row2 = cursor.fetchall()
+
+    lock = multiprocessing.Lock()    
     
     proc = []
     index = 0
     ind = multiprocessing.Value('i',index)
     ti1 = time.time()
-    for i in range(0,4):
-        t1 = multiprocessing.Process(target=implement, args=(ind,row,inp,row2[0][0]))
+    for i in range(0,12):
+        t1 = multiprocessing.Process(target=implement, args=(lock,ind,row,inp,row2[0][0]))
         t1.start()
         proc.append(t1)
 
@@ -59,4 +72,5 @@ if __name__ == "__main__":
     ti2 = time.time()
     
     print(ti2-ti1)
+    
         
