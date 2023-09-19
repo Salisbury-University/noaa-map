@@ -190,9 +190,6 @@ func main() {
 	end_time := time.Now()
 	run_time := end_time.Sub(start_time)
 	fmt.Println("run time of ", run_time)
-	//connect to rds
-	//loop through other local dbs to transfer
-
 }
 
 func downloadTile(Tile TileDatabase) {
