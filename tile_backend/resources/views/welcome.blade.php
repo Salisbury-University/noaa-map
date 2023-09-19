@@ -142,14 +142,14 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="" alt="testing"style="width:100%">
-  <div class="text">Caption Two</div>
+  <img src="" alt="team photo"style="width:100%">
+  <div class="text text-black">Our team</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="" alt="lmao"style="width:100%">
-  <div class="text">Caption Three</div>
+  <img src="" alt="viewer photo"style="width:100%">
+  <div class="text text-black">The maps</div>
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -186,7 +186,7 @@ function showSlides(n) {
     slides[i].style.display = "none";  
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active");
+    dots[i].className = "dot";
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
