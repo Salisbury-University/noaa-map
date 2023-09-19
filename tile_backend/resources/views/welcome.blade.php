@@ -37,7 +37,6 @@
                 <div >
                 <style>
 * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 img {vertical-align: middle;}
 
@@ -138,7 +137,7 @@ img {vertical-align: middle;}
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
   <img src="./logo.png" style="width:100%">
-  <div class="text">Caption Text</div>
+  <div class="text text-black">Open source like the seas</div>
 </div>
 
 <div class="mySlides fade">
