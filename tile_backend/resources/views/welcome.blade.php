@@ -192,9 +192,30 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script>
-                </div>
-                
-                
+</div>
+
+<style>
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #f7f7f7 !important;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-color: #f7f7f7;
+}
+
+.btn-primary:hover {
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+    border-color: #f7f7f7;
+}
+
+h1{
+    color: #005eae;
+}
+
+p{
+    color: #1aa7d8;
+}
+</style>
+
+<!-- Container for the homepage buttons -->
                 <div class = container>
                     <div class = "row py-2">
                         <div class="d-grid gap-2">
