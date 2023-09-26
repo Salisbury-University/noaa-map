@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -11,8 +12,12 @@
         <title>Bathymetric Tile API</title>
 
         <!-- Fonts -->
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <script type="text/javascript" src="css3-mediaqueries.js"></script>
         
 
     </head>
@@ -126,8 +131,11 @@ img {vertical-align: middle;}
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 767px) {
   .prev, .next,.text {font-size: 11px}
+  .slideshow-container {max-width: 225px;}
+  .dot{height: 10px;
+  width:10px;}
 }
 
 </style>
@@ -199,6 +207,9 @@ function showSlides(n) {
     background-color: #f7f7f7 !important;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     border-color: #f7f7f7;
+    @media (max-width: 100px){
+      background-color: black;
+    }
 }
 
 .btn-primary:hover {
@@ -213,10 +224,19 @@ h1{
 p{
     color: #1aa7d8;
 }
-</style>
+@media screen and (max-width: 767px){
+  .col-sm-6{padding: 2px}
+  .btn-primary{
+    height: 100px;
+    
+  }
+  .lead{font-size: small;}
+  .display-4{font-size: medium;}
+}
 
+</style>
 <!-- Container for the homepage buttons -->
-                <div class = container>
+                <div class = "container" >
                     <div class = "row py-2">
                         <div class="d-grid gap-2">
                             <a href="/viewer" class="btn btn-primary btn-rounded btn-block" role="button">
