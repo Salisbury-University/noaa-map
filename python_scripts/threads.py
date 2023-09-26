@@ -8,41 +8,35 @@ import os
 import sqlite3
 import mysql.connector
 import ctypes
+import threading
 
 
-def implement(lock,index,arr,gID,size):
-    mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1")
+def implement(lock,arr,size,index):
+    mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
     SQLCursor1 = mSQL1.cursor()
     while(index.value < size):
         lock.acquire()
         try:
-            #z, row, column, gID, tileID
-            data = (arr[index.value][0],arr[index.value][2],arr[index.value][1],gID,arr[index.value][3])
-            SQLCursor1.execute("insert into location values (%s,%s,%s,%s,%s)",data)
-            #mSQL1.commit()
-            #print(arr[index.value][0],arr[index.value][2],arr[index.value][1],gID,arr[index.value][3])
             if index.value == size:
                 break
+            #z, row, column, gID, tileID
+            SQLCursor1.executemany("insert into tile values (%s,%s,%s);",arr[index.value])
+
             index.value = index.value + 1
-            print("tiles remaining: ", size-index.value)
+            print("tile chunks remaining: ", size-index.value)
         finally:
             lock.release()
 
-def implement2(index,arr,gID):
-    mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1")
+def implement2(arr):
+    mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
     SQLCursor1 = mSQL1.cursor()
-    #z, row, column, gID, tileID
-    data = (arr[0],arr[2],arr[1],gID,arr[3])
-    SQLCursor1.execute("insert into location values (%s,%s,%s,%s,%s)",data)
-    #mSQL1.commit()
-    #print(arr[index.value][0],arr[index.value][2],arr[index.value][1],gID,arr[index.value][3])
-    print(index)
-       
+    SQLCursor1.executemany("insert into location values (%s,%s,%s,%s,%s);",arr)
+    
+
+
 if __name__ == "__main__":
-    mSQL = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1")
+    mSQL = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1",connect_timeout=6000)
     SQLCursor = mSQL.cursor()
-    #SQLCursor.execute("delete FROM bathmap_mysql_1.location where gridID = '15'")
-    #mSQL.commit()
     
     inp = input("Input which grid to translate: ")
     n = 0
@@ -60,35 +54,79 @@ if __name__ == "__main__":
     else:
         florms = inp
     dest = flooms[:index] + florms + flooms[index+3:]
-    conn = sqlite3.connect(dest)
+    conn = sqlite3.connect(dest)    
     cursor = conn.cursor()
-    cursor.execute("select * from map limit 1000")
-    row = cursor.fetchall()
-    cursor.execute("select count(*) from map limit 10000")
-    row2 = cursor.fetchall()
-
-    lock = multiprocessing.Lock()    
     
-    pool = multiprocessing.Pool()
-    proc = []
+    cursor.execute("select * from map")
+    row = cursor.fetchall()
+    cursor.execute("select count(*) from map")
+    row2 = cursor.fetchall()
+    
+    
+    fleems = []
     index = 0
-    ind = multiprocessing.Value('i',index)
-    ti1 = time.time()
-    proces = [pool.apply_async(implement2,args=(index,x,inp)) for index,x in enumerate(row)]
-    p = [res.get(timeout=5) for res in proces]
+    for x in row:
+        data = (x[0],x[2],x[1],x[3],inp)
+        fleems.append(data)
+        print("Remaining rows: ",row2[0][0] - index)
+        index = index + 1
     """
+    t1 = threading.Thread(target=implement2, args=(fleems,))
+    t1.start()
+    t1.join()
+
+    ti1 = time.time()
+
+
+    ti2 = time.time()
+    print(ti2-ti1)
+    print("Location migration finished")
+    """
+
+    
+    fleems2 = []
+    cursor.execute("select * from images")
+    row3 = cursor.fetchall()
+    for y in row3:
+        data = (y[0],y[1],inp)
+        fleems2.append(data)
+    fleems3 = []
+    f = 0
+    data2 = []
+    print(len(fleems2))
+    for l in range(0,len(fleems2)):
+        data2.append(fleems2[l])
+        if l % 5000 == 0 and l != 0:
+            fleems3.append(data2)
+            print(len(data2))
+            data2 = []
+        if l == len(fleems2)-1:
+            print(len(data2))
+            fleems3.append(data2)
+
+    lock = multiprocessing.Lock() 
+    proc = []
+    index = 0   
+    
+    ind = 0
+    ti1 = time.time()
     for i in range(0,6):
-        t1 = multiprocessing.Process(target=implement, args=(lock,ind,row,inp,row2[0][0]))
+        t1 = threading.Thread(target=implement, args=(fleems3,len(fleems3),ind))
         t1.start()
         proc.append(t1)
 
     for pr in proc:
         pr.join()
-    """
-    pool.close()
-    pool.join()
+    
+    print("image migration finished")
     ti2 = time.time()
     
     print(ti2-ti1)
     
-        
+
+    cursor.execute('select value from metadata where name = "bounds" or name = "center"')
+    rows4 = cursor.fetchall()
+    data5 = (inp, rows4[0][0], rows4[1][0])
+    SQLCursor.execute('insert into grid values (%s, %s, %s)',data5)
+
+    print("migration complete")        
