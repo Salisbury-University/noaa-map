@@ -12,16 +12,16 @@ import threading
 
 
 def implement(lock,arr,size,index):
-    mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
-    SQLCursor1 = mSQL1.cursor()
+    mSQL2 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
+    SQLCursor2 = mSQL2.cursor()
     while(index.value < size):
         lock.acquire()
         try:
             if index.value == size:
                 break
             #z, row, column, gID, tileID
-            SQLCursor1.executemany("insert into tile values (%s,%s,%s);",arr[index.value])
-
+            SQLCursor2.executemany("insert into tile values (%s,%s,%s);",arr[index.value])
+            mSQL2.commit()
             index.value = index.value + 1
             print("tile chunks remaining: ", size-index.value)
         finally:
@@ -31,13 +31,12 @@ def implement2(arr):
     mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
     SQLCursor1 = mSQL1.cursor()
     SQLCursor1.executemany("insert into location values (%s,%s,%s,%s,%s);",arr)
-    
+    mSQL1.commit()
 
 
 if __name__ == "__main__":
     mSQL = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1",connect_timeout=6000)
     SQLCursor = mSQL.cursor()
-    
     inp = input("Input which grid to translate: ")
     n = 0
     gridID = 0
@@ -66,15 +65,15 @@ if __name__ == "__main__":
     fleems = []
     index = 0
     for x in row:
-        data = (x[0],x[2],x[1],x[3],inp)
+        data = (x[0],x[1],x[2],x[3],inp)
         fleems.append(data)
         print("Remaining rows: ",row2[0][0] - index)
         index = index + 1
-    """
+    
     t1 = threading.Thread(target=implement2, args=(fleems,))
     t1.start()
     t1.join()
-
+    """
     ti1 = time.time()
 
 
@@ -82,7 +81,7 @@ if __name__ == "__main__":
     print(ti2-ti1)
     print("Location migration finished")
     """
-
+    """
     
     fleems2 = []
     cursor.execute("select * from images")
@@ -130,3 +129,4 @@ if __name__ == "__main__":
     SQLCursor.execute('insert into grid values (%s, %s, %s)',data5)
 
     print("migration complete")        
+    """
