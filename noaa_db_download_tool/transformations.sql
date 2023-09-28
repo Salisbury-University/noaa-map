@@ -1,5 +1,3 @@
---set gridID
-SET @grid := "01a";
 
 --rename tables
 ALTER TABLE images 
@@ -8,9 +6,9 @@ RENAME to tile;
 ALTER TABLE map
 RENAME to `location`;
 
+--remove all indecies and views
+
 -- rename columns to match
-ALTER TABLE `location`
-RENAME COLUMN "zoom_level" TO map_z;
 ALTER TABLE `location`
 RENAME COLUMN "tile_row" TO map_row;
 ALTER TABLE `location`
@@ -27,9 +25,9 @@ RENAME COLUMN "tile_id" TO id;
 
 -- add grid id column to tile table
 ALTER TABLE tile
-ADD COLUMN gridID VARCHAR(3) DEFAULT @grid;
+ADD COLUMN gridID VARCHAR(3) DEFAULT "01a";
 
 -- populate gridID column in location table
 UPDATE `location`
-SET gridID=@grid;
+SET gridID="01a";
 
