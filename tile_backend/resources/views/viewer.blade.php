@@ -8,7 +8,7 @@
           <select name="gridID" id="grid_selector">
                 <option value="">All </option>
             @foreach ($grid_options as $option)
-                 <option value="{{$option->gridID}}"> {{$option->name . ", (" . $option->gridCenter. ")"}}</option> 
+                 <option value="{{$option->gridID . "/"}}"> {{$option->name . ", (" . $option->gridCenter. ")"}}</option> 
             @endforeach
           </select>
       </div>
