@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\InformationController;
-use App\Http\Controllers\TokenController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TokenController;
+use App\Http\Controllers\InformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,8 @@ Route::get("/documentation",[InformationController::class,'documentation'])->nam
 Route::get("/about",[InformationController::class,'about'])->name('about');
 Route::get("/tutorial",[InformationController::class,'tutorial'])->name('tutorial');
 Route::get("/viewer",function(){
-    return view("viewer");
+    $grid_options=DB::table("grid")->get();
+    return view("viewer",compact("grid_options"));
 });
 
 
