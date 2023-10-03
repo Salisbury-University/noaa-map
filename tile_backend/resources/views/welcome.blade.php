@@ -131,7 +131,7 @@ img {vertical-align: middle;}
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 900px) {
   .prev, .next,.text {font-size: 11px}
   .slideshow-container {max-width: 225px;}
   .dot{height: 10px;
