@@ -2,8 +2,9 @@
 
 @section('content')
 <style>
-@media only screen and (max-width: 767px) {
-    .text-muted{overflow: hidden;}
+@media only screen and (min-width: 767px) {
+    
+  .list-group-item{display:flex;}
 }
 </style>
 <div class="container">
@@ -35,31 +36,31 @@
                         <div class="card" >
                             <ul class="list-group list-group-flush">
                                 
-                                <li class="list-group-item  d-flex justify-content-between">
+                                <li class="list-group-item  justify-content-between">
                                     <div>John Meyers, Team Leader and Frontend Engineer</div>
                                     <div class='text-muted'> jmeyers5@gulls.salisbury.edu</div>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between">
+                                <li class="list-group-item justify-content-between">
                                     <div>Bryan Yoder, Frontend Engineer</div>
                                     <div class='text-muted'> byoder1@gulls.salisbury.edu</div>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between">
+                                <li class="list-group-item justify-content-between">
                                     <div>Brian Bowers, Database Engineer</div>
                                     <div class="text-muted">bbowers4@gulls.salisbury.edu</div>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between">
+                                <li class="list-group-item  justify-content-between">
                                     <div>Mark Schweitzer, Database Engineer</div>
                                     <div class="text-muted">mschweitzer1@gulls.salisbury.edu</div>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between">
+                                <li class="list-group-item  justify-content-between">
                                     <div>Isaac Dugan, Backend Engineer</div>
                                     <div class="text-muted">idugan1@salisbury.edu</div>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between">
+                                <li class="list-group-item  justify-content-between">
                                     <div>Sophie Wang, Project Consultant and Salisbury University Professor</div>
                                     <div class="text-muted">xswang@salisbury.edu</div>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between">
+                                <li class="list-group-item  justify-content-between">
                                     <div>Authur Lembo, GIS Consultant and Salisbury University Professor</div>
                                     <div class="text-muted">ajlembo@salisbury.edu</div>
                                 </li>
