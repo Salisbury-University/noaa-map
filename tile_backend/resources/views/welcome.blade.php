@@ -143,21 +143,21 @@ img {vertical-align: middle;}
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
+  
   <img src="./logo.png" style="width:100%">
-  <div class="text text-black">Open source like the seas</div>
+  <div class="text text-black"><strong>Open source like the seas</strong></div>
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
+  
   <img src="./teamPhoto426.JPG" alt="team photo"style="width:100%">
-  <div class="text text-black">Our team</div>
+  <div class="text text-black "><strong>Our team</strong></div>
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
+ 
   <img src="./mapViewerScreen.png" alt="viewer photo"style="width:100%">
-  <div class="text text-black">The maps</div>
+  <div class="text text-black"><strong>The maps</strong></div>
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">❮</a>
