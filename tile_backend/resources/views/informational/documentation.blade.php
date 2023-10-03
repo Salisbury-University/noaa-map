@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 900px) {
   .text-muted{width:25%;}
   .list-group-item{display:flex;}
 }
