@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -21,6 +23,7 @@
                         <li class="list-group-item"> 
 
                             <div>Making a request with javascript:</div>
+                            <div id ="code">
                             <pre><code>
                                 const options = {
                                     method: 'GET',
@@ -34,19 +37,23 @@
                                     .then(response => response.json())
                                     .then(response => console.log(response))
                                     .catch(err => console.error(err));
-                            </code></pre>
+                                </code></pre> 
+                                </div>
                         </li>
                         <li class="list-group-item">
                             <div>Making a request with curl:</div>
+                            <div id ="code1">
                             <pre><code>
                                 curl --request GET \
                                 --url https://bathmap.net/api/welcome \
                                 --header 'Accept: application/json' \
                                 --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>'
                             </code></pre>
+                                </div>
                         </li>
                         <li class="list-group-item">
                             <div>Making a request with python</div>
+                            <div id ="code2">
                             <pre><code>
                                 import requests
 
@@ -62,6 +69,7 @@
 
                                 print(response.text)
                             </code></pre>
+                            </div>
                         </li>
                         <li class="list-group-item">
                             You should get a message that says "Hello BathMap User!" Now that you know how to make a request, head over to our 
