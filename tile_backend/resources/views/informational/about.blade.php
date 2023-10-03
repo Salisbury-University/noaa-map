@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+@media only screen and (max-width: 767px) {
+    .text-muted{overflow: hidden;}
+}
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
