@@ -150,13 +150,13 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="" alt="team photo"style="width:100%">
+  <img src="./teamPhoto426.JPG" alt="team photo"style="width:100%">
   <div class="text text-black">Our team</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="" alt="viewer photo"style="width:100%">
+  <img src="./mapViewerScreen.png" alt="viewer photo"style="width:100%">
   <div class="text text-black">The maps</div>
 </div>
 
