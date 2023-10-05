@@ -11,6 +11,7 @@ import ctypes
 import threading
 
 indexGL = 0
+indexGL2 = 0
 
 def implement(lock,arr,size):
     mSQL2 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
@@ -29,11 +30,22 @@ def implement(lock,arr,size):
         finally:
             lock.release()
 
-def implement2(arr):
-    mSQL1 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
-    SQLCursor1 = mSQL1.cursor()
-    SQLCursor1.executemany("insert into location values (%s,%s,%s,%s,%s);",arr)
-    mSQL1.commit()
+def implement2(lock,arr,size):
+    mSQL3 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
+    SQLCursor3 = mSQL3.cursor()
+    global indexGL2
+    while(indexGL2 < size):
+        lock.acquire()
+        try:
+            if indexGL2 == size:
+                break
+            #z, row, column, gID, tileID
+            SQLCursor3.executemany("insert into location values (%s,%s,%s,%s,%s);",arr[indexGL2])
+            mSQL3.commit()
+            indexGL2 = indexGL2 + 1
+            print("location chunks remaining: ", size-indexGL2)
+        finally:
+            lock.release()
 
 
 if __name__ == "__main__":
@@ -57,7 +69,19 @@ if __name__ == "__main__":
     dest = flooms[:index] + florms + flooms[index+3:]
     conn = sqlite3.connect(dest)    
     cursor = conn.cursor()
-    
+    """
+    florb = [inp]
+    print("Clearing previous data from grid ",inp)
+    SQLCursor.execute('Delete from location where gridID = %s',florb)
+    mSQL.commit()
+    SQLCursor.execute('Delete from tile where gridID = %s',florb)
+    mSQL.commit()
+    SQLCursor.execute('Delete from grid where gridID = %s',florb)
+    mSQL.commit()
+    print("Previous data cleared. Beginning migration.")
+    """
+
+    lock1 = threading.Lock()
     cursor.execute("select * from map")
     row = cursor.fetchall()
     cursor.execute("select count(*) from map")
@@ -72,9 +96,33 @@ if __name__ == "__main__":
         print("Remaining rows: ",row2[0][0] - index)
         index = index + 1
     
-    t1 = threading.Thread(target=implement2, args=(fleems,))
-    t1.start()
-    t1.join()
+    fleems4 = []
+    f = 0
+    data3 = []
+    print("splitting location database ")
+    for l in range(0,len(fleems)):
+        data3.append(fleems[l])
+        if l % 100000 == 0 and l != 0:
+            fleems4.append(data3)
+            print(len(data3))
+            data3 = []
+        if l == len(fleems)-1:
+            print(len(data3))
+            fleems4.append(data3)
+    print("location database split")
+    lock = multiprocessing.Lock() 
+    proc = []
+    index = 0   
+    lock3 = threading.Lock()
+
+    ind = 1
+    for i in range(0,6):
+        t1 = threading.Thread(target=implement2, args=(lock3,fleems4,len(fleems4)))
+        t1.start()
+        proc.append(t1)
+
+    for pr in proc:
+        pr.join()
 
     print("Location migration finished")
     
@@ -88,16 +136,17 @@ if __name__ == "__main__":
     f = 0
     data2 = []
     print(len(fleems2))
+    print("splitting image table")
     for l in range(0,len(fleems2)):
         data2.append(fleems2[l])
-        if l % 3500 == 0 and l != 0: #ADJUST % VALUE BASED ON SIZE OF IMAGES. OTHERWISE INCREASE MAXIMUM BIT SIZE OF SERVER
+        if l % 3500 == 0 and l != 0:
             fleems3.append(data2)
             print(len(data2))
             data2 = []
         if l == len(fleems2)-1:
             print(len(data2))
             fleems3.append(data2)
-
+    print("image table split")
     lock = multiprocessing.Lock() 
     proc = []
     index = 0   
@@ -121,5 +170,6 @@ if __name__ == "__main__":
     mSQL.commit()
     ti2 = time.time()
     print(ti2-ti1)
+    
     print("migration complete")        
     
