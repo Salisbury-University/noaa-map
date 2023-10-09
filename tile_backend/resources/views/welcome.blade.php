@@ -134,21 +134,27 @@
                   <div class="slideshow-container">
 
                   <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img src="./logo.png" style="width:100%">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="./logo.png" style="width: 300px; height:300px;">
                     <div class="text text-black">Open source like the seas</div>
                   </div>
 
                   <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
+                    <div class="numbertext">2 / 4</div>
                     <img src="" alt="team photo"style="width:100%">
                     <div class="text text-black">Our team</div>
                   </div>
 
                   <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
+                    <div class="numbertext">3 / 4</div>
                     <img src="" alt="viewer photo"style="width:100%">
                     <div class="text text-black">The maps</div>
+                  </div>
+
+                  <div class="mySlides fade">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="openSourceSea.jpg" alt="github photo"style="width: 300px; height:300px">
+                    <div class="text text-white">Open Source like the seas</div>
                   </div>
 
                   <a class="prev" onclick="plusSlides(-1)">❮</a>
