@@ -98,27 +98,7 @@ let tileGrid = new TileGrid({
     });
     return dataTileLayer;
   }
-/*
-  function create_watermark_tile_layer(tile_id){
-    let dataTileLayer = new TileLayer({
-      source: new XYZ({
-        attributions: [
-          '<a href  ="/bathmapMapLogo.png"></a>',
-        ATTRIBUTION,
-      ],
-      opaque: false,
-      url: window.appConfig.appUrl + '/api/relative/' + tile_id + '{z}/{x}/{-y}',
-      tileLoadFunction: function (tile, src){
-        const chr = new XMLHttpRequest();
-        xhr.responseType = 'blob';
-        xhr.setRequestHeader('Authorization', 'Bearer' + window.appConfig.olKey);
-        xhr.onload = (e) =>
-      }
 
-      })
-    })
-  }
-/*/
   //initialize map with background, noaa data tile layer and starting coordinates
   function initialize_map(dataTileLayer){
     let map = new Map({
@@ -158,5 +138,3 @@ let tileGrid = new TileGrid({
       document.getElementById("tile-location").innerHTML = tileLocation;
     });
   }
-
-  //insert the imgae tag 
