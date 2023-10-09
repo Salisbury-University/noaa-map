@@ -89,8 +89,13 @@
 
             </head>
             <body>
-                <div style="height:400px;width:400px;">
-                    <iframe src="'. env("APP_URL") .'/fullscreenviewer" frameborder="0"></iframe>
+                <div>
+                    <iframe 
+                        src="'. env("APP_URL") .'/fullscreenviewer" 
+                        frameborder="0" 
+                        height="100px" 
+                        width="100px">
+                    </iframe>
                 </div>
             </body>
         </html>'}}
