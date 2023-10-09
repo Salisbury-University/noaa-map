@@ -31,9 +31,9 @@ class AddNamesToGridTable extends Seeder
         DB::table("grid")->where("gridID","14")->update(["name"=>"East Texas"]);
         DB::table("grid")->where("gridID","15")->update(["name"=>"Lake Erie"]);
         DB::table("grid")->where("gridID","16")->update(["name"=>"Toronto"]);
-        //DB::table("grid")->where("gridID","17a")->update(["name"=>"Green Bay"]);
-        //DB::table("grid")->where("gridID","17b")->update(["name"=>"Milwaukee"]);
-        //DB::table("grid")->where("gridID","18")->update(["name"=>"Lake Superior"]);
+        DB::table("grid")->where("gridID","17a")->update(["name"=>"Green Bay"]);
+        DB::table("grid")->where("gridID","17b")->update(["name"=>"Milwaukee"]);
+        DB::table("grid")->where("gridID","18")->update(["name"=>"Lake Superior"]);
         DB::table("grid")->where("gridID","19")->update(["name"=>"Tijuana"]);
         DB::table("grid")->where("gridID","19b")->update(["name"=>"Los Angles"]);
         DB::table("grid")->where("gridID","19c")->update(["name"=>"San Jose"]);
@@ -46,10 +46,10 @@ class AddNamesToGridTable extends Seeder
         DB::table("grid")->where("gridID","22b")->update(["name"=>"Kuiu Island"]);
         DB::table("grid")->where("gridID","23a")->update(["name"=>"Sitka"]);
         DB::table("grid")->where("gridID","23b")->update(["name"=>"Juneau"]);
-        //DB::table("grid")->where("gridID","24a")->update(["name"=>"Cordova"]);
-        //DB::table("grid")->where("gridID","24b")->update(["name"=>"Anchorage"]);
-        //DB::table("grid")->where("gridID","25a")->update(["name"=>"Kodiak Island"]);
-        //DB::table("grid")->where("gridID","25b")->update(["name"=>"King Cove"]);
+        DB::table("grid")->where("gridID","24a")->update(["name"=>"Cordova"]);
+        DB::table("grid")->where("gridID","24b")->update(["name"=>"Anchorage"]);
+        DB::table("grid")->where("gridID","25a")->update(["name"=>"Kodiak Island"]);
+        DB::table("grid")->where("gridID","25b")->update(["name"=>"King Cove"]);
         //DB::table("grid")->where("gridID","26a")->update(["name"=>"Umnak Island"]);
         //DB::table("grid")->where("gridID","26b")->update(["name"=>"Adak Island"]);
         DB::table("grid")->where("gridID","27")->update(["name"=>"Northen Alaska"]);
