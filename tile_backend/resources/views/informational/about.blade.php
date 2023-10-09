@@ -12,7 +12,7 @@
 
                 <div class="card-body">                    
                     <div class="m-3">
-                    <h2 class="card-subtitle mb-2 text-muted">Our Purpose</h6>
+                    <h2 class="card-subtitle mb-2 text-muted">Our Purpose</h2>
                     <p>
                         The oceans are some of the last unexplored places of the world. Despite having been sailed for centuries, only a tiny fraction of the ocean floor has been mapped. We are creating this public API for the purpose of making NOAA's bathymetric (ocean depth) map data easliy acessible for developers and the 
                         public. This project is being done for credit for a software engineering class. We are working in collaberation with Sophie Wang 

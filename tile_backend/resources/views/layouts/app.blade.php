@@ -63,27 +63,58 @@
         <!-- Dark mode styling -->
         <style>
             .dark-mode {
-                background-color: #333333;
-                color: grey;
 
+                /* Background of page */
+                background-color: #27374D;
+                color: #9DB2BF;
+
+                /* Welcome blade buttons */
                 .btn-primary, .btn-primary:active, .btn-primary:visited {
-                    background-color: #535454 !important;
+                    background-color: #526D82 !important;
                     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-                    border-color: #535454;
+                    border-color: #526D82;
                 }
 
                 .btn-primary:hover {
                     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
-                    border-color: #535454;
+                    border-color: #526D82;
                 }
 
                 h1{
-                    color: #0080c6;
+                    color: #9DB2BF;
                 }
 
                 p{
-                    color: #1aa7d8;
+                    color: #DDE6ED;
                 }
+                
+                /* For navbar at top of page */
+                .navbar{
+                    background-color : #526D82 !important;    
+                }
+
+                a{
+                    color: #DDE6ED;
+                }
+
+                /*Informational pages */
+                .card{
+                    background-color : #526D82;
+                }
+
+                .list-group-item{
+                    background-color : #526D81;
+                    color: #DDE6ED;
+                }
+
+                .text-muted{
+                    color: #9DB2BF !important;
+                }
+
+                .collapseTwo{
+                    background-color :#526D81 !important;
+                }
+
             }
         </style>
 
@@ -102,10 +133,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="/viewer">Viewer</a></li>
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="/viewer">Viewer</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -154,6 +185,8 @@
                 </div>
             </div>
         </nav>
+
+
 
         <main class="py-4">
 
