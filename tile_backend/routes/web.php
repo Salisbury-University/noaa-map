@@ -28,10 +28,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get("/documentation",[InformationController::class,'documentation'])->name('documentation');
 Route::get("/about",[InformationController::class,'about'])->name('about');
 Route::get("/tutorial",[InformationController::class,'tutorial'])->name('tutorial');
+
 Route::get("/viewer",function(){
     $grid_options=DB::table("grid")->get();
     return view("viewer",compact("grid_options"));
 });
+
+Route::view("/fullscreenviewer","fullscreenviewer");
 
 
 
