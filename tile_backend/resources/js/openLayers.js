@@ -98,7 +98,7 @@ let tileGrid = new TileGrid({
     });
     return dataTileLayer;
   }
-  
+
   //initialize map with background, noaa data tile layer and starting coordinates
   function initialize_map(dataTileLayer){
     let map = new Map({
@@ -138,4 +138,3 @@ let tileGrid = new TileGrid({
       document.getElementById("tile-location").innerHTML = tileLocation;
     });
   }
-  
