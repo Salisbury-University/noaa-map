@@ -37,23 +37,28 @@
                                     <div class='text-muted w-25'> Get a map tiles by relative grid position only from a specific region.</div>
                                   
                                 </li>
-                                <div class="accordion list-group-item " id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Region Grid ID Lookup Table
-                                          </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                          <div class="accordion-body">
-                                            <table class="table">
-                                                <thead>
-                                                  <tr>
-                                                    <th scope="col">Region</th>
-                                                    <th >Grid ID</th>
-                                                    <th> Grid Center</th>
-                                                  </tr>
-                                                </thead>
+                                <li class="list-group-item d-block">
+                                  <div class="d-flex justify-content-between mb-3">
+                                    <div class="fs-5">{{env("APP_URL") . "/api/relative/{gridID}/{z}/{x}/{y}"}}</div>
+                                    <div class='text-muted w-25'> Get a map tiles by relative grid position only from a specific region.</div>
+                                  </div>
+
+                                    <div class="accordion  " id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Region Grid ID Lookup Table
+                                              </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                              <div class="accordion-body">
+                                                <table class="table">
+                                                    <thead>
+                                                      <tr>
+                                                        <th scope="col">Region</th>
+                                                        <th scope="col">Grid ID</th>
+                                                      </tr>
+                                                    </thead>
                                                 <tbody>
                                                   @foreach ($grids as $grid)
                                                     <tr>
