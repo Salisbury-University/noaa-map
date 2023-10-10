@@ -2,9 +2,6 @@
 
 @section('content')
       <div class="d-flex justify-content-center">
-        <img src="{{asset("./logo.png")}}" alt="Logo" style="width:15em;height:14em;float:right"  class="mt-2" >
-      </div>
-      <div class="d-flex justify-content-center">
           <select name="gridID" id="grid_selector">
             <option value="" selected >All Locations</option>
             <option value="01a/">Vermont (01a)</option>
@@ -43,17 +40,40 @@
         <div class="d-flex justify-content-center">
           <div>
             <div id = "zoomLevel"></div>
-            <div id = "tile-location"></div>
+            <div id = "tile-location"></div>  
           </div>
 
         </div> 
     </div> 
-
-    <span  class=" mb-4 d-flex justify-content-center">
-      <div id="map" class="map  container " style="height: 50vh;"></div>   
+    
+   <div>
+<a a href="{{ url('/') }}">
+   <img class = "absWater btn btn-primary btn-rounded btn-block" src="{{asset("./logo.png")}}" alt="Logo"  role = "button"> 
+</a> 
+   <span  class=" mb-4 d-flex justify-content-center">
+      <div id="map" class="map  container " style="height: 75vh;"></div>
     </span>
+    </div>
 
+<style>
 
+  .absWater {
+    position: absolute;
+    top: 85%;
+    left: 7.5%;
+    width: 9em;
+    height: 8em;
+    z-index: 1;
+    opacity: 0.2;
+  }
+
+  /* On smaller screens, decrease text size */
+@media only screen and (max-width: 600px) {
+  .absWater {
+    left: 3%;
+  }
+}
+</style>
 
 @endsection
 
