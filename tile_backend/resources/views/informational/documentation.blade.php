@@ -73,6 +73,12 @@
                                         </div>
                                       </div>
                                 </div>
+                                </li>
+                                <li class="list-group-item justify-content-between">
+                                  <div class="fs-5">{{env("APP_URL") . "/fullscreenviewer"}}</div>
+                                  <div class='text-muted '> This is the link to use as the source for an iframe tag if you'd like to embed our viewer directly into your application.</div>
+                                
+                              </li>
 
 
 
