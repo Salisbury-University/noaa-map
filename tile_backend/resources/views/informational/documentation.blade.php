@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+@media only screen and (min-width: 900px) {
+  .text-muted{width:25%;}
+  .list-group-item{display:flex;}
+}
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -13,18 +19,19 @@
                     <h2 class="card-subtitle mb-2 text-muted">Routes</h2>
                     <ul class="list-group list-group-flush">
                                 
-                                <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">bathmap.net/api/welcome</div>
-                                    <div class='text-muted w-25'> Get a hello message from our team</div>
+                                <li class="list-group-item  justify-content-between">
+                                    <div class="fs-5">{{env("APP_URL") . "/api/welcome"}}</div>
+                                    <div class='text-muted '> Get a hello message from our team</div>
                                 </li>
-                                <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">bathmap.net/api/version</div>
-                                    <div class='text-muted w-25'> Get the current version of the API </div>
+                                <li class="list-group-item justify-content-between">
+                                    <div class="fs-5">{{env("APP_URL") . "/api/version"}}</div>
+                                    <div class='text-muted '> Get the current version of the API </div>
                                 </li>
-                                <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">{{"bathmap.net/api/relative/{z}/{x}/{y}"}}</div>
-                                    <div class='text-muted w-25'> Get a map tile by relative grid position with x as column, y as row and z as the zoom level </div>
+                                <li class="list-group-item justify-content-between">
+                                    <div class="fs-5">{{env("APP_URL") . "/api/relative/{z}/{x}/{y}"}}</div>
+                                    <div class='text-muted '> Get a map tile by relative grid position with x as column, y as row and z as the zoom level </div>
                                 </li>
+
                                 <li class="list-group-item  d-flex justify-content-between">
                                     <div class="fs-5">{{"bathmap.net/api/relative/{gridID}/{z}/{x}/{y}"}}</div>
                                     <div class='text-muted w-25'> Get a map tiles by relative grid position only from a specific region.</div>
@@ -61,6 +68,7 @@
                                         </div>
                                       </div>
                                 </div>
+
 
 
 
