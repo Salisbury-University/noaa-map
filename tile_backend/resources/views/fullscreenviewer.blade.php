@@ -30,12 +30,30 @@
     <option value="" selected >All Locations</option>
     </select>
 
-    <span  class="d-flex justify-content-center">
-      <div id="map" class="map" style="height: 100vh; width:100vw;"></div>   
+    <a a href="{{ url('/') }}">
+   <img class = "absWater" src="{{asset("./logo.png")}}" alt="Logo"  role = "button"> 
+</a> 
+   <span  class=" mb-4 d-flex justify-content-center">
+      <div id="map" class="map  container " style="height: 75vh;"></div>
     </span>
-
-
-
+    </div>
+    <style>
+.absWater {
+  position: absolute;
+  top: 60%;
+  left: 7.5%;
+  width: 9em;
+  height: 8em;
+  z-index: 1;
+  opacity: 0.2;
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 600px) {
+.absWater {
+  left: 3%;
+}
+}
+</style>
 </body>
 </html>
 
