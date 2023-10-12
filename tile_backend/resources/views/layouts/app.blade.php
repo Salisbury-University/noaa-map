@@ -34,7 +34,7 @@
         <!-- Scripting for dark mode switcher -->    
         <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const darkModeToggle = document.getElementById('form-check');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
             const element = document.body;
             
             // Function to toggle dark mode
@@ -111,7 +111,7 @@
                     color: #9DB2BF !important;
                 }
 
-                .collapseTwo{
+                .accordian{
                     background-color :#526D81 !important;
                 }
 
@@ -141,12 +141,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Dark Mode switcher 
-                        <li class="nav-item"><a id="dark-mode-toggle" class="nav-link" href="#">Dark Mode</a></li> -->
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                        </div>
+                        <!-- Dark Mode switcher -->
+                        <li class="nav-item"><a id="dark-mode-toggle" class="nav-link" href="#">Dark Mode</a></li> 
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
