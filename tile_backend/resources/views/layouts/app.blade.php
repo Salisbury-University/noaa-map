@@ -28,7 +28,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
 </head>
-<body class=>
+<body>
     <div id="app">
         
         <!-- Scripting for dark mode switcher -->    
@@ -133,10 +133,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+<<<<<<< HEAD
                         <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="/viewer">Viewer</a></li>
                         <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
                         <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
                         <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
+=======
+                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="/viewer">Viewer</a></li>
+                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
+                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
+                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
+>>>>>>> main
                     </ul>
 
                     <!-- Right Side Of Navbar -->
