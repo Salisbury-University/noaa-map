@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-      <div class="d-flex justify-content-center">
-        <img src="{{asset("./logo.png")}}" alt="Logo" style="width:15em;height:14em;float:right"  class="mt-2" >
-      </div>
-=======
->>>>>>> main
       <div class="d-flex justify-content-center">
           <select name="gridID" id="grid_selector">
                 <option value="">All </option>
