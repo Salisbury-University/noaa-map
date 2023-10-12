@@ -19,11 +19,12 @@
     </div> 
     
    <div>
-<a a href="{{ url('/') }}">
-   <img class = "absWater" src="{{asset("./bathMapLogoNoBackGround.png")}}" alt="Logo"  role = "button"> 
-</a> 
+
    <span  class=" mb-4 d-flex justify-content-center">
       <div id="map" class="map  container " style="height: 75vh;"></div>
+      <a a href="{{ url('/') }}">
+   <img class = "absWater" src="{{asset("./bathMapLogoNoBackGround.png")}}" alt="Logo"  role = "button"> 
+</a> 
     </span>
     </div>
 
@@ -37,6 +38,7 @@
     height: 8em;
     z-index: 1;
     opacity: 0.2;
+    display: flex;
   }
 
   /* On smaller screens, decrease text size */
