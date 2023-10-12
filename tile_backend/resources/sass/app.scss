@@ -7,6 +7,25 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+<<<<<<< HEAD
+=======
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/functions";
+
+@import "../node_modules/bootstrap/scss/variables";
+
+
+    @include media-breakpoint-down(xxl) {
+      .btn-primary{
+        background-color: black !important;
+    }
+}
+
+
+
+  
+>>>>>>> main
 
 @import "ol/ol.css";
 
