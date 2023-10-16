@@ -60,7 +60,7 @@
         });
         </script>
 
-        <!-- Dark mode styling -->
+        <!-- Dark mode styling 
         <style>
             .dark-mode {
 
@@ -117,7 +117,7 @@
 
             }
         </style>
-
+-->
    
 
         <nav class="navbar navbar-expand-md nav-fill nav-pills navbar-light bg-white shadow-sm">
