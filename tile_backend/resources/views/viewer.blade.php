@@ -23,7 +23,7 @@
    <span  class=" mb-4 d-flex justify-content-center">
       <div id="map" class="map  container " style="height: 75vh;"></div>
       <a a href="{{ url('/') }}">
-   <img class = "absWater" src="{{asset("./bathMapLogoNoBackGround.png")}}" alt="Logo"  role = "button"> 
+   <img class = "absWater" src="{{asset("./bathMapLogoNoBackground.png")}}" alt="Logo"  role = "button"> 
 </a> 
     </span>
     </div>
