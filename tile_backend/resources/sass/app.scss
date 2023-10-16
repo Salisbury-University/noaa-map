@@ -7,6 +7,61 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+.dark-mode {
+
+  /* Background of page */
+  background-color: #27374D;
+  color: #9DB2BF;
+
+  /* Welcome blade buttons */
+  .btn-primary, .btn-primary:active, .btn-primary:visited {
+      background-color: #526D82 !important;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      border-color: #526D82;
+  }
+
+  .btn-primary:hover {
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+      border-color: #526D82;
+  }
+
+  h1{
+      color: #9DB2BF;
+  }
+
+  p{
+      color: #DDE6ED;
+  }
+  
+  /* For navbar at top of page */
+  .navbar{
+      background-color : #526D82 !important;    
+  }
+
+  a{
+      color: #DDE6ED;
+  }
+
+  /*Informational pages */
+  .card{
+      background-color : #526D82;
+  }
+
+  .list-group-item{
+      background-color : #526D81;
+      color: #DDE6ED;
+  }
+
+  .text-muted{
+      color: #9DB2BF !important;
+  }
+
+  .accordian{
+      background-color :#526D81 !important;
+  }
+
+}
+
 @import "../node_modules/bootstrap/scss/mixins";
 
 @import "../node_modules/bootstrap/scss/functions";
