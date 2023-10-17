@@ -143,17 +143,17 @@ img {vertical-align: middle;}
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-  <img src="./openSourceSea.jpg" style="width:100%">
+  <img src="./openSourceSea.jpg" style="width:100%;height:15em">
   <div class="text text-black"><strong>Open source like the seas</strong></div>
 </div>
 
 <div class="mySlides fade">
-  <img src="./teamPhoto426.JPG" alt="team photo"style="width:100%">
+  <img src="./teamPhoto426.JPG" alt="team photo"style="width:100%;height:15em">
   <div class="text text-black "><strong>Our team</strong></div>
 </div>
 
 <div class="mySlides fade">
-  <img src="./mapViewerScreen.png" alt="viewer photo"style="width:100%">
+  <img src="./mapViewerScreen1.png" alt="viewer photo"style="width:100%;height:15em">
   <div class="text text-black"><strong>The maps</strong></div>
 </div>
 
