@@ -31,28 +31,28 @@
                                     <div class="fs-5">{{env("APP_URL") . "/api/relative/{z}/{x}/{y}"}}</div>
                                     <div class='text-muted '> Get a map tile by relative grid position with x as column, y as row and z as the zoom level </div>
                                 </li>
-                                <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">{{"bathmap.net/api/relative/{gridID}/{z}/{x}/{y}"}}</div>
+                                <li class="list-group-item d-block">
+                                  <div class="d-flex justify-content-between mb-3">
+                                    <div class="fs-5">{{env("APP_URL") . "/api/relative/{gridID}/{z}/{x}/{y}"}}</div>
                                     <div class='text-muted w-25'> Get a map tiles by relative grid position only from a specific region.</div>
-                                  
-                                </li>
-                                <div class="accordion list-group-item " id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Region Grid ID Lookup Table
-                                          </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                          <div class="accordion-body">
-                                            <table class="table">
-                                                <thead>
-                                                  <tr>
-                                                    <th scope="col">Region</th>
-                                                    <th >Grid ID</th>
-                                                    <th> Grid Center</th>
-                                                  </tr>
-                                                </thead>
+                                  </div>
+
+                                    <div class="accordion  " id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Region Grid ID Lookup Table
+                                              </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                              <div class="accordion-body">
+                                                <table class="table">
+                                                    <thead>
+                                                      <tr>
+                                                        <th scope="col">Region</th>
+                                                        <th scope="col">Grid ID</th>
+                                                      </tr>
+                                                    </thead>
                                                 <tbody>
                                                   @foreach ($grids as $grid)
                                                     <tr>
@@ -67,6 +67,12 @@
                                         </div>
                                       </div>
                                 </div>
+                                </li>
+                                <li class="list-group-item justify-content-between">
+                                  <div class="fs-5">{{env("APP_URL") . "/fullscreenviewer"}}</div>
+                                  <div class='text-muted '> This is the link to use as the source for an iframe tag if you'd like to embed our viewer directly into your application.</div>
+                                
+                              </li>
 
 
 
