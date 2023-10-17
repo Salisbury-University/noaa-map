@@ -31,12 +31,6 @@
                                     <div class="fs-5">{{env("APP_URL") . "/api/relative/{z}/{x}/{y}"}}</div>
                                     <div class='text-muted '> Get a map tile by relative grid position with x as column, y as row and z as the zoom level </div>
                                 </li>
-
-                                <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">{{"bathmap.net/api/relative/{gridID}/{z}/{x}/{y}"}}</div>
-                                    <div class='text-muted w-25'> Get a map tiles by relative grid position only from a specific region.</div>
-                                  
-                                </li>
                                 <li class="list-group-item d-block">
                                   <div class="d-flex justify-content-between mb-3">
                                     <div class="fs-5">{{env("APP_URL") . "/api/relative/{gridID}/{z}/{x}/{y}"}}</div>
