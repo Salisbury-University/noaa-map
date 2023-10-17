@@ -77,7 +77,6 @@
 
 
 
-
                                 {{-- we'll add this once the feature is working --}}
                                 {{-- <li class="list-group-item  d-flex justify-content-between">
                                     <div class="fs-5">{{"bathmap.net/api/coordinate//{lattitude}/{longitude}/{scope}"}}</div>

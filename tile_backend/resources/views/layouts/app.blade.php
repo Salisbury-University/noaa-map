@@ -12,6 +12,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+    
     <script>
         window.appConfig = {
             appUrl: @json(env('APP_URL')),
@@ -28,6 +30,96 @@
 </head>
 <body>
     <div id="app">
+        
+        <!-- Scripting for dark mode switcher -->    
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const element = document.body;
+            
+            // Function to toggle dark mode
+            function toggleDarkMode() {
+                element.classList.toggle("dark-mode");
+                
+                // Check if dark mode is enabled and save the preference in a cookie
+                const isDarkModeEnabled = element.classList.contains("dark-mode");
+                document.cookie = `dark_mode=${isDarkModeEnabled ? '1' : '0'}; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/`;
+            }
+
+            // Check the cookie to set the initial dark mode state
+            const darkModeCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('dark_mode='));
+            if (darkModeCookie) {
+                const isDarkModeEnabled = darkModeCookie.trim().split('=')[1] === '1';
+                if (isDarkModeEnabled) {
+                    element.classList.add("dark-mode");
+                }
+            }
+
+            // Add a click event listener to the dark mode toggle
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+        });
+        </script>
+
+        <!-- Dark mode styling 
+        <style>
+            .dark-mode {
+
+                /* Background of page */
+                background-color: #27374D;
+                color: #9DB2BF;
+
+                /* Welcome blade buttons */
+                .btn-primary, .btn-primary:active, .btn-primary:visited {
+                    background-color: #526D82 !important;
+                    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+                    border-color: #526D82;
+                }
+
+                .btn-primary:hover {
+                    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+                    border-color: #526D82;
+                }
+
+                h1{
+                    color: #9DB2BF;
+                }
+
+                p{
+                    color: #DDE6ED;
+                }
+                
+                /* For navbar at top of page */
+                .navbar{
+                    background-color : #526D82 !important;    
+                }
+
+                a{
+                    color: #DDE6ED;
+                }
+
+                /*Informational pages */
+                .card{
+                    background-color : #526D82;
+                }
+
+                .list-group-item{
+                    background-color : #526D81;
+                    color: #DDE6ED;
+                }
+
+                .text-muted{
+                    color: #9DB2BF !important;
+                }
+
+                .accordian{
+                    background-color :#526D81 !important;
+                }
+
+            }
+        </style>
+-->
+   
+
         <nav class="navbar navbar-expand-md nav-fill nav-pills navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-teal-500" href="{{ url('/') }}">
@@ -41,14 +133,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="/viewer">Viewer</a></li>
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
-                        <li class="nav-item"><a style="text-decoration: underline;text-decoration-color: rgb(0, 47, 130);text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="/viewer">Viewer</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("tutorial")}}">Tutorial</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("documentation")}}">Documentation</a></li>
+                        <li class="nav-item"><a style="text-decoration-thickness: 3px;" class="nav-link" href="{{route("about")}}">About Us</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <!-- Dark Mode switcher -->
+                        <li class="nav-item"><a id="dark-mode-toggle" class="nav-link" href="#">Dark Mode</a></li> 
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -91,6 +185,8 @@
                 </div>
             </div>
         </nav>
+
+
 
         <main class="py-4">
 

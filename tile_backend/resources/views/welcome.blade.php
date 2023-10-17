@@ -2,7 +2,6 @@
 
 
 @section('content')
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -21,6 +20,7 @@
         
 
     </head>
+
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-blue-500 selection:text-white">
             {{-- @if (Route::has('login'))
@@ -143,22 +143,20 @@ img {vertical-align: middle;}
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-  
-  <img src="./logo.png" style="width:100%">
+  <img src="./openSourceSea.jpg" style="width:100%;height:15em">
   <div class="text text-black"><strong>Open source like the seas</strong></div>
 </div>
 
 <div class="mySlides fade">
-  
-  <img src="./teamPhoto426.JPG" alt="team photo"style="width:100%">
+  <img src="./teamPhoto426.JPG" alt="team photo"style="width:100%;height:15em">
   <div class="text text-black "><strong>Our team</strong></div>
 </div>
 
 <div class="mySlides fade">
- 
-  <img src="./mapViewerScreen.png" alt="viewer photo"style="width:100%">
+  <img src="./mapViewerScreen1.png" alt="viewer photo"style="width:100%;height:15em">
   <div class="text text-black"><strong>The maps</strong></div>
 </div>
+
 
 <a class="prev" onclick="plusSlides(-1)">❮</a>
 <a class="next" onclick="plusSlides(1)">❯</a>
