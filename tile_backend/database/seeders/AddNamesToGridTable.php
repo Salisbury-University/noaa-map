@@ -14,7 +14,7 @@ class AddNamesToGridTable extends Seeder
     public function run(): void
     {
         DB::table("grid")->where("gridID","01a")->update(["name"=>"Vermont"]);
-        DB::table("grid")->where("gridID","1b")->update(["name"=>"Mainse"]);
+        DB::table("grid")->where("gridID","1b")->update(["name"=>"Maine"]);
         DB::table("grid")->where("gridID","2a")->update(["name"=>"Massachusetts"]);
         DB::table("grid")->where("gridID","2b")->update(["name"=>"Boston Coast"]);
         DB::table("grid")->where("gridID","03")->update(["name"=>"New York"]);
