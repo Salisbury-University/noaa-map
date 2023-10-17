@@ -6,15 +6,23 @@ import random
 import multiprocessing
 import os
 import sqlite3
-import mysql.connector
+import mysql.connector # most likely must pip install mysql.connector to use
 import ctypes
 import threading
+import dotenv # "pip install python-dotenv" necessary
+
+dotenv.load_dotenv()
+
+HOSTN = os.environ.get('DatabHost')
+PASSW = os.environ.get('DatabPassword')
+USERN = os.environ.get('DatabUsername')
+TABL = os.environ.get('DatabTable')
 
 indexGL = 0
 indexGL2 = 0
 
 def implement(lock,arr,size):
-    mSQL2 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
+    mSQL2 = mysql.connector.connect(host = HOSTN,username = USERN,password = PASSW,database = TABL, connect_timeout=6000)
     SQLCursor2 = mSQL2.cursor()
     global indexGL
     while(indexGL < size):
@@ -22,7 +30,6 @@ def implement(lock,arr,size):
         try:
             if indexGL == size:
                 break
-            #z, row, column, gID, tileID
             SQLCursor2.executemany("insert into tile values (%s,%s,%s);",arr[indexGL])
             mSQL2.commit()
             indexGL = indexGL + 1
@@ -31,7 +38,7 @@ def implement(lock,arr,size):
             lock.release()
 
 def implement2(lock,arr,size):
-    mSQL3 = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1", connect_timeout=6000)
+    mSQL3 = mysql.connector.connect(host = HOSTN,username = USERN,password = PASSW,database = TABL, connect_timeout=6000)
     SQLCursor3 = mSQL3.cursor()
     global indexGL2
     while(indexGL2 < size):
@@ -39,7 +46,6 @@ def implement2(lock,arr,size):
         try:
             if indexGL2 == size:
                 break
-            #z, row, column, gID, tileID
             SQLCursor3.executemany("insert into location values (%s,%s,%s,%s,%s);",arr[indexGL2])
             mSQL3.commit()
             indexGL2 = indexGL2 + 1
@@ -49,7 +55,7 @@ def implement2(lock,arr,size):
 
 
 if __name__ == "__main__":
-    mSQL = mysql.connector.connect(host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",username = "admin",password = "towMater",database = "bathmap_mysql_1",connect_timeout=6000)
+    mSQL = mysql.connector.connect(host = HOSTN,username = USERN,password = PASSW,database = TABL, connect_timeout=6000)
     SQLCursor = mSQL.cursor()
     inp = input("Input which grid to translate: ")
     n = 0
@@ -69,25 +75,12 @@ if __name__ == "__main__":
     dest = flooms[:index] + florms + flooms[index+3:]
     conn = sqlite3.connect(dest)    
     cursor = conn.cursor()
-    """
-    florb = [inp]
-    print("Clearing previous data from grid ",inp)
-    SQLCursor.execute('Delete from location where gridID = %s',florb)
-    mSQL.commit()
-    SQLCursor.execute('Delete from tile where gridID = %s',florb)
-    mSQL.commit()
-    SQLCursor.execute('Delete from grid where gridID = %s',florb)
-    mSQL.commit()
-    print("Previous data cleared. Beginning migration.")
-    """
-
+    ti1 = time.time()
     lock1 = threading.Lock()
     cursor.execute("select * from map")
     row = cursor.fetchall()
     cursor.execute("select count(*) from map")
     row2 = cursor.fetchall()
-    
-    ti1 = time.time()
     fleems = []
     index = 0
     for x in row:
@@ -95,9 +88,7 @@ if __name__ == "__main__":
         fleems.append(data)
         print("Remaining rows: ",row2[0][0] - index)
         index = index + 1
-    
     fleems4 = []
-    f = 0
     data3 = []
     print("splitting location database ")
     for l in range(0,len(fleems)):
@@ -114,7 +105,6 @@ if __name__ == "__main__":
     proc = []
     index = 0   
     lock3 = threading.Lock()
-
     ind = 1
     for i in range(0,6):
         t1 = threading.Thread(target=implement2, args=(lock3,fleems4,len(fleems4)))
@@ -133,7 +123,6 @@ if __name__ == "__main__":
         data = (y[0],y[1],inp)
         fleems2.append(data)
     fleems3 = []
-    f = 0
     data2 = []
     print(len(fleems2))
     print("splitting image table")
@@ -157,19 +146,16 @@ if __name__ == "__main__":
         t1 = threading.Thread(target=implement, args=(lock2,fleems3,len(fleems3)))
         t1.start()
         proc.append(t1)
-
     for pr in proc:
         pr.join()
     
     print("image migration finished")
-    
     cursor.execute('select value from metadata where name = "bounds" or name = "center"')
     rows4 = cursor.fetchall()
-    data5 = (inp, rows4[0][0], rows4[1][0])
-    SQLCursor.execute('insert into grid values (%s, %s, %s)',data5)
+    data5 = (inp, rows4[0][0], rows4[1][0], "")
+    SQLCursor.execute('insert into grid values (%s, %s, %s, %s) ',data5)
     mSQL.commit()
     ti2 = time.time()
     print(ti2-ti1)
     
     print("migration complete")        
-    
