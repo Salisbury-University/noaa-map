@@ -14,7 +14,7 @@
                 <div class="card-body">
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
-            Log into BathMap.net or create an account if you don't already have one.
+            Log into www.bathmap.net or create an account if you don't already have one.
         </li>
         <li class="list-group-item"> 
             Navigate to the My Tokens page and click the green New Token button. Your token will be shown to you at the top of page in a 
@@ -33,7 +33,7 @@
             }
             };
             
-            fetch('https://bathmap.net/api/welcome', options)
+            fetch('https://www.bathmap.net/api/welcome', options)
             .then(response => response.json())
             .then(response => console.log(response))
             .catch(err => console.error(err));
@@ -45,7 +45,7 @@
             <div id ="code1">
             <pre><code>
         curl --request GET \
-        --url https://bathmap.net/api/welcome \
+        --url https://www.bathmap.net/api/welcome \
         --header 'Accept: application/json' \
         --header 'Authorization: Bearer <strong>YOUR_TOKEN_HERE</strong>'
             </code></pre>
@@ -57,7 +57,7 @@
             <pre><code>
         import requests
 
-        url = "https://bathmap.net/api/welcome"
+        url = "https://www.bathmap.net/api/welcome"
 
         payload = ""
         headers = {

@@ -79,7 +79,7 @@
 
                                 {{-- we'll add this once the feature is working --}}
                                 {{-- <li class="list-group-item  d-flex justify-content-between">
-                                    <div class="fs-5">{{"bathmap.net/api/coordinate//{lattitude}/{longitude}/{scope}"}}</div>
+                                    <div class="fs-5">{{"www.bathmap.net/api/coordinate//{lattitude}/{longitude}/{scope}"}}</div>
                                     <div class='text-muted w-25'> Get a map tile by the lattitude and longitude of the top right corner of the tile and the scope/width of the tile in miles </div>
                                 </li> --}}
                                 
