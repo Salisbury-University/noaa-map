@@ -83,11 +83,31 @@ img {vertical-align: middle;}
 .text {
   color: #f2f2f2;
   font-size: 15px;
-  padding: 8px 12px;
+  background-clip: padding-box;
   position: absolute;
   bottom: 8px;
-  width: 100%;
+  left: 100px;
+  width: 100px;
   text-align: center;
+  background: rgb(189, 195, 199); /* Fallback */
+  background: rgba(189, 195, 199, 0.5);
+  background-origin: 30px;
+  border-radius: 5px;
+
+}
+.text2 {
+  color: #f2f2f2;
+  font-size: 15px;
+  background-clip: padding-box;
+  position: absolute;
+  bottom: 8px;
+  left: 50px;
+  width: 200px;
+  text-align: center;
+  background: rgb(189, 195, 199); /* Fallback */
+  background: rgba(189, 195, 199, 0.65);
+  background-origin: 30px;
+  border-radius: 5px;
 }
 
 /* Number text (1/3 etc) */
@@ -146,7 +166,7 @@ img {vertical-align: middle;}
   <a a href="https://github.com/Salisbury-University/noaa-map">
     <img src="./openSourceSea.jpg" style="width:100%;height:15em">
   </a>
-  <div class="text text-black"><strong>Open source like the seas</strong></div>
+  <div class="text2 text-black"><strong>Open source like the seas</strong></div>
 </div>
 
 <div class="mySlides fade">
