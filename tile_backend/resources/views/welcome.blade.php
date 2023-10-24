@@ -82,12 +82,46 @@ img {vertical-align: middle;}
 /* Caption text */
 .text {
   color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
+  font-size: 20px;
+  background-clip: padding-box;
   position: absolute;
   bottom: 8px;
-  width: 100%;
+  left: 100px;
+  width: 100px;
   text-align: center;
+  background: rgb(189, 195, 199); /* Fallback */
+  background: rgba(189, 195, 199, 0.5);
+  background-origin: 30px;
+  border-radius: 5px;
+
+}
+.text2 {
+  color: #f2f2f2;
+  font-size: 20px;
+  background-clip: padding-box;
+  position: absolute;
+  bottom: 8px;
+  left: 25px;
+  width: 250px;
+  text-align: center;
+  background: rgb(189, 195, 199); /* Fallback */
+  background: rgba(189, 195, 199, 0.65);
+  background-origin: 30px;
+  border-radius: 5px;
+}
+.text3 {
+  color: #f2f2f2;
+  font-size: 20px;
+  background-clip: padding-box;
+  position: absolute;
+  bottom: 8px;
+  left: 100px;
+  width: 100px;
+  text-align: center;
+  background: rgb(189, 195, 199); /* Fallback */
+  background: rgba(189, 195, 199, 0.85);
+  background-origin: 30px;
+  border-radius: 5px;
 }
 
 /* Number text (1/3 etc) */
@@ -146,7 +180,7 @@ img {vertical-align: middle;}
   <a a href="https://github.com/Salisbury-University/noaa-map">
     <img src="./openSourceSea.jpg" style="width:100%;height:15em">
   </a>
-  <div class="text text-black"><strong>Open source like the seas</strong></div>
+  <div class="text2 text-black"><strong>Open source like the seas</strong></div>
 </div>
 
 <div class="mySlides fade">
@@ -160,7 +194,7 @@ img {vertical-align: middle;}
   <a a href="{{ url('/viewer') }}">
     <img src="./mapViewerScreen1.png" alt="viewer photo"style="width:100%;height:15em">
   </a>
-  <div class="text text-black"><strong>The maps</strong></div>
+  <div class="text3 text-black"><strong>The maps</strong></div>
 </div>
 
 
