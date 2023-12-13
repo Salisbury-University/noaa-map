@@ -280,7 +280,7 @@ p{
                             <a href="/viewer" class="btn btn-primary btn-rounded btn-block" role="button">
                                 
                                 <h1 class="display-4">See the maps</h1>
-                                <p class="lead">Take a first hand look at the bathymetric data with our interactive map viewer built on OpenLayers.</p>
+                                <p class="lead">Take a first-hand look at the bathymetric data with our interactive map viewer built on OpenLayers.</p>
                             </a>
                         </div>        
                     </div>
@@ -296,7 +296,7 @@ p{
                             <a href="/documentation" class="btn btn-primary btn-rounded" role="button">
                                  
                                 <h1 class="display-4">Documentation</h1>
-                                <p class="lead">The BathMap API has wonderful documentation covering every aspect of our product. Useful for someone brand new or experianced!</p>
+                                <p class="lead">The BathMap API has wonderful documentation covering every aspect of our product. Useful for someone brand new or experienced!</p>
                             </a>
                         </div>  
                     </div>
@@ -305,14 +305,14 @@ p{
                             <a href="/about" class="btn btn-primary btn-rounded" role="button">
 
                                 <h1 class="display-4">About</h1>
-                                <p class="lead">Learn more about the team behind this project! Learn more about bathymetric mapping and the worlds oceans!</p>
+                                <p class="lead">Learn more about the team behind this project! Learn more about bathymetric mapping and the world's oceans!</p>
                             </a>
                         </div>  
                         <div class="col-sm-6">
                             <a href="https://github.com/Salisbury-University/noaa-map" class="btn btn-primary btn-rounded" role="button">
                                  
                                 <h1 class="display-4">Open Source</h1>
-                                <p class="lead">At BathMap we belive in free and open source software! You can find us on github by clicking here!</p>
+                                <p class="lead">At BathMap we belive in free and open-source software! You can find us on github by clicking here!</p>
                             </a>
                         </div>  
                     </div>
