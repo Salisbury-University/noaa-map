@@ -305,8 +305,7 @@ p{
                             </a>
                         </div>  
                         <div class="col-sm-6">
-                            <a href="https://github.com/Salisbury-University/noaa-map" class="btn btn-primary btn-rounded" role="button">
-                                 
+                            <a href="https://github.com/Salisbury-University/noaa-map" class="btn btn-primary btn-rounded" target="_blank" role="button">
                                 <h1 class="display-4">Open Source</h1>
                                 <p class="lead">At BathMap we belive in free and open-source software! You can find us on github by clicking here!</p>
                             </a>
