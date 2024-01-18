@@ -19,11 +19,11 @@
                 <div class="card-body">                    
                     <div class="m-3">
                     <h2 class="card-subtitle mb-2 text-muted">Our Purpose</h2>
-                    <p>
+                    <div>
                         The oceans are some of the last unexplored places of the world. Despite having been sailed for centuries, only a tiny fraction of the ocean floor has been mapped. We are creating this public API for the purpose of making NOAA's bathymetric map (ocean depth) data easily accessible for developers and the 
                         public. This project is being done for credit for a software engineering class. We are working in collaberation with Sophie Wang 
                         and Aurthur Lembo who are both professors at Salisbury University. 
-                    </p>
+                    </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <iframe class="m-3"width="420" height="315"
