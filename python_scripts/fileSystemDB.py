@@ -6,15 +6,17 @@ import sqlite3
 import re
 import mysql.connector
 
+HOSTN = os.environ.get('DatabHost')
+PASSW = os.environ.get('DatabPassword')
+USERN = os.environ.get('DatabUsername')
+TABL = os.environ.get('DatabTable')
+
 mSQL = mysql.connector.connect(
-    host = "bathmap-db-1.cneazldeoyra.us-east-1.rds.amazonaws.com",
-    username = "admin",
-    password = "towMater",
-    database = "bathmap_mysql_1"
+    host = HOSTN,
+    username = USERN,
+    password = PASSW,
+    database = TABL
 )
-
-
-
 
 # Program that opens the database and 
 # reads the number of rows the map table has
