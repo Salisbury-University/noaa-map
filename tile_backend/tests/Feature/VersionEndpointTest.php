@@ -2,10 +2,8 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use App\Models\User;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class VersionEndpointTest extends TestCase
 {
@@ -14,13 +12,13 @@ class VersionEndpointTest extends TestCase
      */
     public function testVersionEndpoint(): void
     {
-        $user = User::factory()->make();        
+        $user = User::factory()->make();
         $this->actingAs($user);
 
         $response = $this->getJson('/api/version');
         $response->assertStatus(200);
         $response->assertJson([
-            "version"=>"1.0"
+            'version' => '1.0',
         ]);
 
     }

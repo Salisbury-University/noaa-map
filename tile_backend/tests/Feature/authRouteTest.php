@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class authRouteTest extends TestCase
@@ -13,16 +11,16 @@ class authRouteTest extends TestCase
      */
     public function testAuthRoutesRequireToken(): void
     {
-        $response = $this->get('/api/version',['Accept'=>'application/json']);
+        $response = $this->get('/api/version', ['Accept' => 'application/json']);
         $response->assertStatus(401);
 
-        $response = $this->get('/api/welcome',['Accept'=>'application/json']);
+        $response = $this->get('/api/welcome', ['Accept' => 'application/json']);
         $response->assertStatus(401);
 
-        $response = $this->get('/api/relative/1/2/3',['Accept'=>'application/json']);
+        $response = $this->get('/api/relative/1/2/3', ['Accept' => 'application/json']);
         $response->assertStatus(401);
 
-        $response = $this->get('/api/coordinate/1/2/3',['Accept'=>'application/json']);
+        $response = $this->get('/api/coordinate/1/2/3', ['Accept' => 'application/json']);
         $response->assertStatus(401);
     }
 
