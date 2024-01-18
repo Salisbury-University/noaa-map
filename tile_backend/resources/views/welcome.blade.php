@@ -278,7 +278,6 @@ p{
                     <div class = "row py-2">
                         <div class="d-grid gap-2">
                             <a href="/viewer" class="btn btn-primary btn-rounded btn-block" role="button">
-                                
                                 <h1 class="display-4">See the maps</h1>
                                 <p class="lead">Take a first-hand look at the bathymetric data with our interactive map viewer built on OpenLayers.</p>
                             </a>
@@ -287,14 +286,12 @@ p{
                     <div class = "row py-2">
                         <div class="col-sm-6">
                             <a href="/tutorial" class="btn btn-primary btn-rounded" role="button">
-
                                 <h1 class="display-4">Tutorials</h1>
                                 <p class="lead">The BathMap API tutorials will guide you through the process of using these resources for yourself! </p>
                             </a>
                         </div>  
                         <div class="col-sm-6">
                             <a href="/documentation" class="btn btn-primary btn-rounded" role="button">
-                                 
                                 <h1 class="display-4">Documentation</h1>
                                 <p class="lead">The BathMap API has wonderful documentation covering every aspect of our product. Useful for someone brand new or experienced!</p>
                             </a>
@@ -303,7 +300,6 @@ p{
                     <div class = "row py-2">
                         <div class="col-sm-6">
                             <a href="/about" class="btn btn-primary btn-rounded" role="button">
-
                                 <h1 class="display-4">About</h1>
                                 <p class="lead">Learn more about the team behind this project! Learn more about bathymetric mapping and the world's oceans!</p>
                             </a>
@@ -318,16 +314,6 @@ p{
                     </div>
 
                 </div>
-                
-                
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                           
-                        </div>
-                    </div>
-
-                  
                 </div>
             </div>
         </div>
