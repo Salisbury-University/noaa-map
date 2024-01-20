@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTileRequest;
+use App\Http\Requests\UpdateTileRequest;
 use App\Models\Tile;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\StoreTileRequest;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\UpdateTileRequest;
 
 class TileController extends Controller
 {
-    const EMPTY_TILE_ID='147ca8bf480d89b17921e24e3c09edcf1cb2228b';
+    const EMPTY_TILE_ID = '147ca8bf480d89b17921e24e3c09edcf1cb2228b';
+
     /**
      * Display a listing of the resource.
      */
@@ -70,32 +70,35 @@ class TileController extends Controller
         //
     }
 
-    public function coordinate($lattitude, $longitude, $scope){
-        return(response(["message"=>"Tile at " . $lattitude . ", ". $longitude . " with a width of " . $scope],200));
+    public function coordinate($lattitude, $longitude, $scope)
+    {
+        return response(['message' => 'Tile at '.$lattitude.', '.$longitude.' with a width of '.$scope], 200);
     }
 
-    public function relative($gridID, $z, $y, $x){
+    public function relative($gridID, $z, $y, $x)
+    {
 
-        $location=DB::table("location")->where('gridID',$gridID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
-        if(isset($location)){
-            $tile=DB::table("tile")->where("id",$location->tileID)->first();
+        $location = DB::table('location')->where('gridID', $gridID)->where('map_z', $z)->where('map_row', $x)->where('map_col', $y)->first();
+        if (isset($location)) {
+            $tile = DB::table('tile')->where('id', $location->tileID)->first();
+
             return response($tile->image, 200)->header('Content-Type', 'image/png');
-        }
-        else{
-            return response(["message"=>"no tile with that location"],404);
+        } else {
+            return response(['message' => 'no tile with that location'], 404);
         }
     }
 
+    public function true_relative($z, $y, $x)
+    {
 
-    public function true_relative($z, $y, $x){
-        
-        $location=DB::table("location")->where("tileID","!=",self::EMPTY_TILE_ID)->where("map_z",$z)->where('map_row',$x)->where("map_col",$y)->first();
-        if(isset($location)){
-            $tile=DB::table("tile")->where("id",$location->tileID)->where("id",'!=',self::EMPTY_TILE_ID)->first();
-            if(isset($tile)){
+        $location = DB::table('location')->where('tileID', '!=', self::EMPTY_TILE_ID)->where('map_z', $z)->where('map_row', $x)->where('map_col', $y)->first();
+        if (isset($location)) {
+            $tile = DB::table('tile')->where('id', $location->tileID)->where('id', '!=', self::EMPTY_TILE_ID)->first();
+            if (isset($tile)) {
                 return response($tile->image, 200)->header('Content-Type', 'image/png');
             }
         }
-        return response(["message"=>"no tile with that location"],404);
+
+        return response(['message' => 'no tile with that location'], 404);
     }
 }
